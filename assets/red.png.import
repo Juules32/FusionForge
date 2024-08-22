@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dranj4xyt7c1c"
-path="res://.godot/imported/ColorCircle.png-ac0daf73b7413ef7094b9edc99f05996.ctex"
+uid="uid://c126mnepaybc2"
+path="res://.godot/imported/red.png-d5f39e261e8585dfbc0a32aa9fd1a167.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ColorCircle.png"
-dest_files=["res://.godot/imported/ColorCircle.png-ac0daf73b7413ef7094b9edc99f05996.ctex"]
+source_file="res://assets/red.png"
+dest_files=["res://.godot/imported/red.png-d5f39e261e8585dfbc0a32aa9fd1a167.ctex"]
 
 [params]
 

@@ -9,6 +9,10 @@ var earth_hovered = false
 var waned_hovered = false
 var hovered_element = ElementData.NONE
 
+func _ready() -> void:
+	strengths_label.scroll_active = false
+	weaknesses_label.scroll_active = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_set_hovered_element()
