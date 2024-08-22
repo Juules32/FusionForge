@@ -1,0 +1,15 @@
+1. Hand should be reorganized when card is dragged
+When card is dragged out of hand area:
+	remove_from_hand()
+When card is dragged into hand area:
+	return_to_hand()
+
+2. DropBox for cards to be played.
+If dropped_in_drop_box:
+	If card_needs_target and no_valid_target:
+		return_to_hand()
+	else:
+		play_card()
+		# no need to remove from hand as it should already have been dragged out
+else:
+	return_to_hand()
