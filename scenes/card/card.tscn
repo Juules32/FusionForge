@@ -18,6 +18,7 @@ offset_left = -13.12
 offset_top = -19.98
 offset_right = 12.88
 offset_bottom = 20.02
+mouse_filter = 1
 script = ExtResource("1_yocp6")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -35,5 +36,3 @@ shape = SubResource("RectangleShape2D_0m4jh")
 position = Vector2(13, 20)
 scale = Vector2(2.6, 4)
 texture = ExtResource("3_uaw2w")
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

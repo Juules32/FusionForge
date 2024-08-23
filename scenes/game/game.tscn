@@ -133,12 +133,30 @@ mouse_filter = 2
 [node name="DeckCenterer" type="CenterContainer" parent="UserInterface/CardArea"]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
-offset_right = 48.0
-offset_bottom = 52.0
+offset_left = 223.0
+offset_top = -29.0
+offset_right = 271.0
+offset_bottom = 23.0
 grow_vertical = 0
 
 [node name="DebugButton" type="Button" parent="UserInterface/CardArea/DeckCenterer"]
 layout_mode = 2
+
+[node name="LabelContainer" type="VBoxContainer" parent="UserInterface/CardArea/DeckCenterer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HoveredLabel" type="Label" parent="UserInterface/CardArea/DeckCenterer/LabelContainer"]
+layout_mode = 2
+text = "Text"
+
+[node name="ClickedLabel" type="Label" parent="UserInterface/CardArea/DeckCenterer/LabelContainer"]
+layout_mode = 2
+text = "Text"
+
+[node name="SelectedLabel" type="Label" parent="UserInterface/CardArea/DeckCenterer/LabelContainer"]
+layout_mode = 2
+text = "Text"
 
 [node name="HandCenterer" type="CenterContainer" parent="UserInterface/CardArea"]
 layout_mode = 1
@@ -152,8 +170,14 @@ grow_vertical = 2
 
 [node name="HandArea" type="Control" parent="UserInterface/CardArea/HandCenterer"]
 layout_mode = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("4_ixcmi")
+
+[node name="BattleArea" type="Control" parent="UserInterface"]
+anchors_preset = 0
+offset_right = 224.0
+offset_bottom = 112.0
+mouse_filter = 1
 
 [connection signal="mouse_entered" from="UserInterface/InformationPanel/ElementExplanations/CenterContainer/CenteredControl/PyroCircleArea" to="UserInterface/InformationPanel/ElementExplanations" method="_on_pyro_circle_area_mouse_entered"]
 [connection signal="mouse_exited" from="UserInterface/InformationPanel/ElementExplanations/CenterContainer/CenteredControl/PyroCircleArea" to="UserInterface/InformationPanel/ElementExplanations" method="_on_pyro_circle_area_mouse_exited"]
@@ -164,3 +188,4 @@ script = ExtResource("4_ixcmi")
 [connection signal="mouse_entered" from="UserInterface/InformationPanel/ElementExplanations/CenterContainer/CenteredControl/WanedCircleArea" to="UserInterface/InformationPanel/ElementExplanations" method="_on_waned_circle_area_mouse_entered"]
 [connection signal="mouse_exited" from="UserInterface/InformationPanel/ElementExplanations/CenterContainer/CenteredControl/WanedCircleArea" to="UserInterface/InformationPanel/ElementExplanations" method="_on_waned_circle_area_mouse_exited"]
 [connection signal="button_down" from="UserInterface/CardArea/DeckCenterer/DebugButton" to="UserInterface/CardArea/HandCenterer/HandArea" method="_on_button_button_down"]
+[connection signal="mouse_entered" from="UserInterface/BattleArea" to="UserInterface/CardArea/HandCenterer/HandArea" method="_on_battle_area_mouse_entered"]

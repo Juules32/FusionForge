@@ -9,20 +9,16 @@ var earth_hovered = false
 var waned_hovered = false
 var hovered_element = ElementData.NONE
 
+# Disables/hides scroll bars
 func _ready() -> void:
 	strengths_label.scroll_active = false
 	weaknesses_label.scroll_active = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_set_hovered_element()
-	if hovered_element != ElementData.NONE:
-		_set_strengths_text()
-		_set_weaknesses_text()
-	else:
-		strengths_label.text = ""
-		weaknesses_label.text = ""
+	_update_explanation_text()
 
+# Uses the hovered circles to determine the appropriate element
 func _set_hovered_element() -> void:
 	if not waned_hovered:
 		hovered_element = ElementData.NONE
@@ -54,6 +50,14 @@ func _set_hovered_element() -> void:
 	
 	hovered_element = ElementData.NONE
 	return
+
+func _update_explanation_text() -> void:
+	if hovered_element != ElementData.NONE:
+		_set_strengths_text()
+		_set_weaknesses_text()
+	else:
+		strengths_label.text = ""
+		weaknesses_label.text = ""
 
 func _set_strengths_text() -> void:
 	var strength_description = " deals double damage and receives half damage against "

@@ -13,3 +13,7 @@ If dropped_in_drop_box:
 		# no need to remove from hand as it should already have been dragged out
 else:
 	return_to_hand()
+
+3. More solid selected_card algorithm
+
+4. CardInfoArea
