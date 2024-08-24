@@ -17,7 +17,7 @@ mono_crash.*.json
 
 # Exclude any executables
 *.exe
-FusionForge.*
+FusionForge*
 
 # Exclude vs code settings
 .vscode
