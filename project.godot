@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="FusionForge"
-run/main_scene="res://scenes/game/game.tscn"
+run/main_scene="res://scenes/battle/battle.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
 ElementData="*res://globals/ElementData.gd"
+Game="*res://globals/Game.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
 
 [display]
 

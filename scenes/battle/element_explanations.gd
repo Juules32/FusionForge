@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Manages which element explanation should be shown.
+# ----------------------------------------------------------------------------
+
 extends VBoxContainer
 
 @onready var strengths_label: RichTextLabel = $StrengthsMarginContainer/StrengthsLabel
@@ -7,7 +11,10 @@ var pyro_hovered = false
 var hydro_hovered = false
 var earth_hovered = false
 var waned_hovered = false
-var hovered_element = ElementData.NONE
+var hovered_element = ElementData.ELEMENTS.NONE
+# -----------------------------------------------------------------------------
+# Manages which element explanation should be shown.
+# -----------------------------------------------------------------------------
 
 # Disables/hides scroll bars
 func _ready() -> void:
@@ -21,38 +28,38 @@ func _process(_delta: float) -> void:
 # Uses the hovered circles to determine the appropriate element
 func _set_hovered_element() -> void:
 	if not waned_hovered:
-		hovered_element = ElementData.NONE
+		hovered_element = ElementData.ELEMENTS.NONE
 		return
 	if pyro_hovered and not hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.PYRO
+		hovered_element = ElementData.ELEMENTS.PYRO
 		return
 	if not pyro_hovered and hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.HYDRO
+		hovered_element = ElementData.ELEMENTS.HYDRO
 		return
 	if not pyro_hovered and not hydro_hovered and earth_hovered:
-		hovered_element = ElementData.EARTH
+		hovered_element = ElementData.ELEMENTS.EARTH
 		return
 	if pyro_hovered and hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.LIGHTNING
+		hovered_element = ElementData.ELEMENTS.LIGHTNING
 		return
 	if pyro_hovered and not hydro_hovered and earth_hovered:
-		hovered_element = ElementData.ALLOY
+		hovered_element = ElementData.ELEMENTS.ALLOY
 		return
 	if not pyro_hovered and hydro_hovered and earth_hovered:
-		hovered_element = ElementData.FLORA
+		hovered_element = ElementData.ELEMENTS.FLORA
 		return
 	if pyro_hovered and hydro_hovered and earth_hovered:
-		hovered_element = ElementData.PRISMATIC
+		hovered_element = ElementData.ELEMENTS.PRISMATIC
 		return
 	if not pyro_hovered and not hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.WANED
+		hovered_element = ElementData.ELEMENTS.WANED
 		return
 	
-	hovered_element = ElementData.NONE
+	hovered_element = ElementData.ELEMENTS.NONE
 	return
 
 func _update_explanation_text() -> void:
-	if hovered_element != ElementData.NONE:
+	if hovered_element != ElementData.ELEMENTS.NONE:
 		_set_strengths_text()
 		_set_weaknesses_text()
 	else:

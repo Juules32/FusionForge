@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhuq1j1okutj1"]
+[gd_scene load_steps=6 format=3 uid="uid://dhuq1j1okutj1"]
 
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_yocp6"]
-[ext_resource type="Texture2D" uid="uid://c126mnepaybc2" path="res://assets/red.png" id="2_06l6x"]
+[ext_resource type="Texture2D" uid="uid://bu8x0v71o16n7" path="res://assets/hovered.png" id="2_nthfg"]
+[ext_resource type="Texture2D" uid="uid://dxwpt46rc6e7o" path="res://assets/blue.png" id="3_m2v2g"]
 [ext_resource type="Texture2D" uid="uid://dx3kyo1ea8u3h" path="res://assets/card-border.png" id="3_uaw2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m4jh"]
@@ -23,16 +24,21 @@ script = ExtResource("1_yocp6")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="SelectedIndicatorSprite" type="Sprite2D" parent="Area2D"]
+position = Vector2(13, 20)
+scale = Vector2(28, 42)
+texture = ExtResource("2_nthfg")
+
+[node name="BorderSprite" type="Sprite2D" parent="Area2D"]
 position = Vector2(13, 20)
 scale = Vector2(26, 40)
-texture = ExtResource("2_06l6x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(13, 20)
-shape = SubResource("RectangleShape2D_0m4jh")
+texture = ExtResource("3_m2v2g")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Area2D"]
 position = Vector2(13, 20)
 scale = Vector2(2.6, 4)
 texture = ExtResource("3_uaw2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(13, 20)
+shape = SubResource("RectangleShape2D_0m4jh")
