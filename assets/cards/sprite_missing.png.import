@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c126mnepaybc2"
-path="res://.godot/imported/red.png-d5f39e261e8585dfbc0a32aa9fd1a167.ctex"
+uid="uid://b010uuvg0wvk0"
+path="res://.godot/imported/sprite_missing.png-123d8ae455919352cd5ff3d8678d0a53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/red.png"
-dest_files=["res://.godot/imported/red.png-d5f39e261e8585dfbc0a32aa9fd1a167.ctex"]
+source_file="res://assets/cards/sprite_missing.png"
+dest_files=["res://.godot/imported/sprite_missing.png-123d8ae455919352cd5ff3d8678d0a53.ctex"]
 
 [params]
 

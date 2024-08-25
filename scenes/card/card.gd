@@ -8,13 +8,14 @@ class_name CardBody
 # Sets card data to default values
 var card_data: Card = Card.new()
 
-const deck_x = 20
 
 @onready var width: int = int(size[0])
 @onready var height: int = int(size[1])
 @onready var y: int = -height/2
-@onready var selected_indicator_sprite: Sprite2D = $Area2D/SelectedIndicatorSprite
-@onready var border_sprite = $Area2D/BorderSprite
+@onready var selected_indicator_sprite: Sprite2D = $Area2D/SelectedCardIndicator
+@onready var sprite = $Area2D/Sprite
+
+@onready var deck_x = 24 - width/2
 
 # Sets the card x to the deck x
 func _ready() -> void:

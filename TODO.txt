@@ -1,10 +1,13 @@
-1. Hand should be reorganized when card is dragged
-When card is dragged out of hand area:
-	remove_from_hand()
-When card is dragged into hand area:
-	return_to_hand()
 
-2. DropBox for cards to be played.
+5. Monster view which should change values of damage effects depending on element and stats
+
+6. Deck
+
+7. Battle script
+
+8. DrawEffect with signal to draw card
+
+9. playing cards visually
 If dropped_in_drop_box:
 	If card_needs_target and no_valid_target:
 		return_to_hand()
@@ -13,5 +16,3 @@ If dropped_in_drop_box:
 		# no need to remove from hand as it should already have been dragged out
 else:
 	return_to_hand()
-
-3. Why can't i rename Run.gd to run???

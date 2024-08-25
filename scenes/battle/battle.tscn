@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://12egl2mbeuby"]
+[gd_scene load_steps=11 format=3 uid="uid://12egl2mbeuby"]
 
 [ext_resource type="Texture2D" uid="uid://c4apqbj3lt2in" path="res://assets/battle.png" id="1_w27ij"]
 [ext_resource type="Script" path="res://scenes/battle/information_area.gd" id="2_rlbt8"]
-[ext_resource type="Script" path="res://scenes/battle/element_explanations.gd" id="3_ubrpg"]
+[ext_resource type="Script" path="res://scenes/battle/element_information.gd" id="3_ubrpg"]
 [ext_resource type="Texture2D" uid="uid://dranj4xyt7c1c" path="res://assets/color-circle.png" id="4_ie0rv"]
+[ext_resource type="Script" path="res://scenes/battle/card_information.gd" id="5_4bs73"]
 [ext_resource type="Script" path="res://scenes/battle/hand_area.gd" id="5_uw4m5"]
 [ext_resource type="Script" path="res://scenes/battle/debug_area.gd" id="6_65hhk"]
+[ext_resource type="Texture2D" uid="uid://bhp4fiqk3d703" path="res://assets/cards/card_back.png" id="6_jnb30"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlu6y"]
 radius = 24.0
@@ -118,11 +120,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 100.0
+offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_4bs73")
 
-[node name="Label" type="Label" parent="UserInterface/InformationArea/CardInformation"]
+[node name="EffectDescription" type="RichTextLabel" parent="UserInterface/InformationArea/CardInformation"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_constants/line_separation = 2
+bbcode_enabled = true
 text = "wow this is a nice card"
 
 [node name="CardArea" type="Control" parent="UserInterface"]
@@ -141,6 +150,10 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UserInterface/CardArea/DeckCenterer"]
+position = Vector2(24, 26)
+texture = ExtResource("6_jnb30")
 
 [node name="HandCenterer" type="CenterContainer" parent="UserInterface/CardArea"]
 layout_mode = 1
@@ -184,6 +197,10 @@ text = "Draw"
 layout_mode = 2
 text = "Reset state"
 
+[node name="Play" type="Button" parent="DebugArea/HBoxContainer"]
+layout_mode = 2
+text = "Play first card"
+
 [node name="Label" type="Label" parent="DebugArea"]
 layout_mode = 2
 text = "Debug text"
@@ -200,3 +217,4 @@ text = "Debug text"
 [connection signal="button_down" from="DebugArea/HBoxContainer/Save" to="DebugArea" method="_on_save_button_down"]
 [connection signal="button_down" from="DebugArea/HBoxContainer/Draw" to="DebugArea" method="_on_draw_button_down"]
 [connection signal="button_down" from="DebugArea/HBoxContainer/ResetState" to="DebugArea" method="_on_reset_state_button_down"]
+[connection signal="button_down" from="DebugArea/HBoxContainer/Play" to="DebugArea" method="_on_play_button_down"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx3kyo1ea8u3h"
-path="res://.godot/imported/card-border.png-194756b96ddedb56360b0e0c5d085c32.ctex"
+uid="uid://c5k7q32pk5p1t"
+path="res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card-border.png"
-dest_files=["res://.godot/imported/card-border.png-194756b96ddedb56360b0e0c5d085c32.ctex"]
+source_file="res://assets/icons/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -20,8 +20,7 @@ var non_dragged_cards: Array
 @onready var card_scene: PackedScene = load("res://scenes/card/card.tscn")
 
 func _ready() -> void:
-	for card: Card in Game.state.run.battle.hand:
-		draw_card(card)
+	pass
 
 func _process(delta: float) -> void:
 	mouse_pressed = Input.is_action_pressed("left_mouse")
@@ -61,22 +60,18 @@ func _setup_card(card_data: Card) -> void:
 	new_card.button_down.connect(_on_card_pressed.bind(new_card))
 	new_card.button_up.connect(_on_card_released.bind(new_card))
 	add_child(new_card)
-	new_card.border_sprite.texture = _determine_card_border_texture(new_card)
+	new_card.sprite.texture = _determine_card_border_texture(new_card)
 	
 # Change to be more automated according to element names
 func _determine_card_border_texture(card: CardBody) -> Texture2D:
-	if card.card_data.element == ElementData.ELEMENTS.EARTH:
-		return load("res://assets/yellow.png")
 	if card.card_data.element == ElementData.ELEMENTS.LIGHTNING:
-		return load("res://assets/purple.png")
-	if card.card_data.element == ElementData.ELEMENTS.PYRO:
-		return load("res://assets/red.png")
-	return load("res://assets/blue.png")
+		return load("res://assets/cards/lightning_strike.png")
+	return load("res://assets/cards/sprite_missing.png")
 
 # Repositions the hand, taking into account the current dragged card
 func _update_card_positions() -> void:
 	non_dragged_cards = get_children().filter(func(card): return card != dragged_card)
-	space_between_cards = max_hand_width / non_dragged_cards.size()
+	space_between_cards = min(max_hand_width / non_dragged_cards.size(), max_space_between_cards)
 	var card_x_positions = _distribute_cards(non_dragged_cards.size())
 	for i in range(non_dragged_cards.size()):
 		non_dragged_cards[i].move_horizontally(card_x_positions[i] - card_width / 2)

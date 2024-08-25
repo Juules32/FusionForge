@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu8x0v71o16n7"
-path="res://.godot/imported/hovered.png-050abed4a22a832da8bd54e863a03e81.ctex"
+uid="uid://dq0icflrm7c6y"
+path="res://.godot/imported/lightning_strike.png-6584fef1b440f561ecfce74947795aeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hovered.png"
-dest_files=["res://.godot/imported/hovered.png-050abed4a22a832da8bd54e863a03e81.ctex"]
+source_file="res://assets/cards/lightning_strike.png"
+dest_files=["res://.godot/imported/lightning_strike.png-6584fef1b440f561ecfce74947795aeb.ctex"]
 
 [params]
 
