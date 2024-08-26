@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Resource script for the parent class of all damage effects.
+# ----------------------------------------------------------------------------
+
 extends Resource
 class_name Effect
 

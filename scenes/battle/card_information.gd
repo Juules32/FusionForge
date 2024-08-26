@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Manages what card should be shown
+# ----------------------------------------------------------------------------
+
 extends VBoxContainer
 
 @onready var label: RichTextLabel = $EffectDescription
@@ -5,7 +9,6 @@ extends VBoxContainer
 func _ready() -> void:
 	label.scroll_active = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var selected_card: CardBody = $"../../CardArea/HandCenterer/HandArea".selected_card
 	var description_text: String = ""

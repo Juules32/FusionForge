@@ -17,7 +17,7 @@ config/icon="res://assets/icons/icon.svg"
 
 [autoload]
 
-ElementData="*res://globals/ElementData.gd"
+Data="*res://globals/Data.gd"
 Game="*res://globals/Game.gd"
 
 [debug]

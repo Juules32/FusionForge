@@ -11,10 +11,7 @@ var pyro_hovered = false
 var hydro_hovered = false
 var earth_hovered = false
 var waned_hovered = false
-var hovered_element = ElementData.ELEMENTS.NONE
-# -----------------------------------------------------------------------------
-# Manages which element explanation should be shown.
-# -----------------------------------------------------------------------------
+var hovered_element = Data.ELEMENTS.NONE
 
 # Disables/hides scroll bars
 func _ready() -> void:
@@ -28,38 +25,38 @@ func _process(_delta: float) -> void:
 # Uses the hovered circles to determine the appropriate element
 func _set_hovered_element() -> void:
 	if not waned_hovered:
-		hovered_element = ElementData.ELEMENTS.NONE
+		hovered_element = Data.ELEMENTS.NONE
 		return
 	if pyro_hovered and not hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.ELEMENTS.PYRO
+		hovered_element = Data.ELEMENTS.PYRO
 		return
 	if not pyro_hovered and hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.ELEMENTS.HYDRO
+		hovered_element = Data.ELEMENTS.HYDRO
 		return
 	if not pyro_hovered and not hydro_hovered and earth_hovered:
-		hovered_element = ElementData.ELEMENTS.EARTH
+		hovered_element = Data.ELEMENTS.EARTH
 		return
 	if pyro_hovered and hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.ELEMENTS.LIGHTNING
+		hovered_element = Data.ELEMENTS.LIGHTNING
 		return
 	if pyro_hovered and not hydro_hovered and earth_hovered:
-		hovered_element = ElementData.ELEMENTS.ALLOY
+		hovered_element = Data.ELEMENTS.ALLOY
 		return
 	if not pyro_hovered and hydro_hovered and earth_hovered:
-		hovered_element = ElementData.ELEMENTS.FLORA
+		hovered_element = Data.ELEMENTS.FLORA
 		return
 	if pyro_hovered and hydro_hovered and earth_hovered:
-		hovered_element = ElementData.ELEMENTS.PRISMATIC
+		hovered_element = Data.ELEMENTS.PRISMATIC
 		return
 	if not pyro_hovered and not hydro_hovered and not earth_hovered:
-		hovered_element = ElementData.ELEMENTS.WANED
+		hovered_element = Data.ELEMENTS.WANED
 		return
 	
-	hovered_element = ElementData.ELEMENTS.NONE
+	hovered_element = Data.ELEMENTS.NONE
 	return
 
 func _update_explanation_text() -> void:
-	if hovered_element != ElementData.ELEMENTS.NONE:
+	if hovered_element != Data.ELEMENTS.NONE:
 		_set_strengths_text()
 		_set_weaknesses_text()
 	else:
@@ -68,20 +65,20 @@ func _update_explanation_text() -> void:
 
 func _set_strengths_text() -> void:
 	var strength_description = " deals double damage and receives half damage against "
-	strengths_label.text = _generate_matchup_text(strength_description, ElementData.strengths[hovered_element])
+	strengths_label.text = _generate_matchup_text(strength_description, Data.strengths[hovered_element])
 
 func _set_weaknesses_text() -> void:
 	var weakness_description = " deals half damage and receives double damage against "
-	weaknesses_label.text = _generate_matchup_text(weakness_description, ElementData.weaknesses[hovered_element])
+	weaknesses_label.text = _generate_matchup_text(weakness_description, Data.weaknesses[hovered_element])
 	
 func _generate_matchup_text(custom_text: String, element_names: Array) -> String:
 	var generated_text: String = (
-		ElementData.int2str[hovered_element] + 
+		Data.int2str[hovered_element] + 
 		custom_text + 
-		ElementData.int2str[element_names[0]]
+		Data.int2str[element_names[0]]
 	)
 	if len(element_names) > 1:
-		generated_text += " and " + ElementData.int2str[element_names[1]]
+		generated_text += " and " + Data.int2str[element_names[1]]
 	generated_text += "."
 	return generated_text
 

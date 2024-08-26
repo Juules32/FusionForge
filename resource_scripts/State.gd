@@ -6,6 +6,6 @@ extends Resource
 class_name State
 
 @export var run: Run = Run.new()
+@export var options: Options = Options.new()
 # @export var achievements: Array[Achievement]
-# @export var options: Array[Option]
 # etc...

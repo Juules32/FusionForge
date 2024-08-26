@@ -64,7 +64,7 @@ func _setup_card(card_data: Card) -> void:
 	
 # Change to be more automated according to element names
 func _determine_card_border_texture(card: CardBody) -> Texture2D:
-	if card.card_data.element == ElementData.ELEMENTS.LIGHTNING:
+	if card.card_data.element == Data.ELEMENTS.LIGHTNING:
 		return load("res://assets/cards/lightning_strike.png")
 	return load("res://assets/cards/sprite_missing.png")
 

@@ -1,10 +1,23 @@
 # -----------------------------------------------------------------------------
-# Global script with information about elements and util functions.
+# Global script with various global vars and util functions.
 # ----------------------------------------------------------------------------
 
 extends Node
 
-enum ELEMENTS {PYRO, HYDRO, EARTH, LIGHTNING, FLORA, ALLOY, PRISMATIC, WANED, NONE, ALL}
+enum CARDBACKS {LOGO, SYMMETRIC}
+
+enum ELEMENTS {
+	PYRO, 
+	HYDRO, 
+	EARTH, 
+	LIGHTNING, 
+	FLORA, 
+	ALLOY, 
+	PRISMATIC, 
+	WANED, 
+	NONE, 
+	ALL
+}
 
 var int2str: Dictionary = {
 	ELEMENTS.PYRO: "Pyro",
