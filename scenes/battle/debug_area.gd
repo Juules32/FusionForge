@@ -5,11 +5,11 @@
 # A lot of this stuff should later be moved to the big "battle.gd" script
 
 extends VBoxContainer
-
-@onready var hand_area: HandArea = $"../UserInterface/CardArea/HandCenterer/HandArea"
-@onready var deck_sprite: Sprite2D = $"../UserInterface/CardArea/DeckCenterer/DeckArea/DeckSprite"
-@onready var deck_area: Control = $"../UserInterface/CardArea/DeckCenterer/DeckArea"
+@onready var hand_area: HandArea = $"../CardArea/HandCenterer/HandArea"
+@onready var deck_sprite: Sprite2D = $"../CardArea/DeckCenterer/DeckArea/DeckSprite"
+@onready var deck_area: Control = $"../CardArea/DeckCenterer/DeckArea"
 @onready var card_back_selector: OptionButton = $HBoxContainer/CardBackSelector
+@onready var label: Label = $Label
 
 func _ready() -> void:
 	card_back_selector.selected = Game.state.options.card_back
@@ -18,9 +18,9 @@ func _ready() -> void:
 		hand_area.draw_card(card)
 	
 func _process(delta: float) -> void:
-	$Label.text = str(len(Game.state.run.battle.hand)) + "\n" 
+	label.text = str(len(Game.state.run.battle.hand)) + "\n" 
 	if len(Game.state.run.battle.hand) > 0:
-		$Label.text += Data.int2str[Game.state.run.battle.hand[0].element]
+		label.text += Data.int2str[Game.state.run.battle.hand[0].element]
 
 func _get_random_element() -> int:
 	var i = randi() % len(Data.ELEMENTS)

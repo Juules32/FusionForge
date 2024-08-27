@@ -29,10 +29,10 @@ func _process(delta: float) -> void:
 
 # Positions card slightly behind the mouse position
 func _update_dragged_card_position(delta: float) -> void:
-	if selected_card and selected_card.button_pressed:
+	if selected_card and selected_card.button.button_pressed:
 		var mouse_position = get_viewport().get_mouse_position()
-		var target_x = mouse_position[0] - card_width/2
-		var target_y = mouse_position[1] - card_height/2
+		var target_x = mouse_position[0]
+		var target_y = mouse_position[1]
 		var target_position = Vector2(target_x, target_y)
 		var distance_between_mouse_and_card = target_position.distance_squared_to(
 			selected_card.get_global_rect().position)
@@ -55,12 +55,12 @@ func _update_selected_indicator_visibility() -> void:
 func _setup_card(card_data: Card) -> void:
 	var new_card: CardBody = card_scene.instantiate()
 	new_card.card_data = card_data
-	new_card.mouse_entered.connect(_on_card_hovered.bind(new_card))
-	new_card.mouse_exited.connect(_on_card_exited.bind(new_card))
-	new_card.button_down.connect(_on_card_pressed.bind(new_card))
-	new_card.button_up.connect(_on_card_released.bind(new_card))
 	add_child(new_card)
 	new_card.sprite.texture = _determine_card_border_texture(new_card)
+	new_card.button.mouse_entered.connect(_on_card_hovered.bind(new_card))
+	new_card.button.mouse_exited.connect(_on_card_exited.bind(new_card))
+	new_card.button.button_down.connect(_on_card_pressed.bind(new_card))
+	new_card.button.button_up.connect(_on_card_released.bind(new_card))
 	
 # Change to be more automated according to element names
 func _determine_card_border_texture(card: CardBody) -> Texture2D:
@@ -74,7 +74,7 @@ func _update_card_positions() -> void:
 	space_between_cards = min(max_hand_width / non_dragged_cards.size(), max_space_between_cards)
 	var card_x_positions = _distribute_cards(non_dragged_cards.size())
 	for i in range(non_dragged_cards.size()):
-		non_dragged_cards[i].move_horizontally(card_x_positions[i] - card_width / 2)
+		non_dragged_cards[i].move_horizontally(card_x_positions[i])
 
 func _distribute_cards(n: int) -> Array:
 	var positions = []
@@ -94,14 +94,14 @@ func _distribute_cards(n: int) -> Array:
 func _on_card_hovered(card: CardBody):
 	if not mouse_pressed:
 		card.z_index = 1
-		card.move_vertically(card.y - hover_height)
+		card.move_vertically(0 - hover_height)
 		selected_card = card
 
 # Triggers when the mouse exits a card
 func _on_card_exited(card):
 	if not mouse_pressed:
 		card.z_index = 0
-		card.move_vertically(card.y)
+		card.move_vertically(0)
 		if selected_card == card:
 			selected_card = null
 
@@ -117,12 +117,12 @@ func _on_card_released(card: CardBody):
 	card.z_index = 0
 	dragged_card = null
 	selected_card = null
-	card.move_vertically(card.y, 0.5)
+	card.move_vertically(0, 0.5)
 	_update_card_positions()
 
 func _set_dropped_card_index(card: CardBody) -> void:
 	var card_x_positions = _distribute_cards(len(non_dragged_cards))
-	var card_x = card.position.x + card_width/2
+	var card_x = card.position.x
 	var count = 0
 	for x in card_x_positions:
 		if card_x > x:
