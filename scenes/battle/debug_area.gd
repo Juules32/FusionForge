@@ -10,12 +10,10 @@ extends VBoxContainer
 @onready var deck_area: Control = $"../CardArea/DeckCenterer/DeckArea"
 @onready var card_back_selector: OptionButton = $HBoxContainer/CardBackSelector
 @onready var label: Label = $Label
+@onready var enemy_area: HBoxContainer = $"../BattleArea/EnemyCenterer/EnemyArea"
 
 func _ready() -> void:
 	card_back_selector.selected = Game.state.options.card_back
-	
-	for card: Card in Game.state.run.battle.hand:
-		hand_area.draw_card(card)
 	
 func _process(delta: float) -> void:
 	label.text = str(len(Game.state.run.battle.hand)) + "\n" 
@@ -48,6 +46,10 @@ func _on_reset_state_button_down() -> void:
 		card.free()
 	for card in Game.state.run.battle.hand:
 		hand_area.draw_card(card)
+	for enemy in enemy_area.get_children():
+		enemy.free()
+	for enemy in Game.state.run.battle.enemies:
+		enemy_area.setup_enemy(enemy)
 
 func _on_save_button_down() -> void:
 	Game.save_state()

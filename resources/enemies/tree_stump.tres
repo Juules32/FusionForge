@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://cpun2ljk5itwk"]
+
+[ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="1_nsplx"]
+
+[resource]
+script = ExtResource("1_nsplx")
+name = "tree_stump"
+hit_points = 50

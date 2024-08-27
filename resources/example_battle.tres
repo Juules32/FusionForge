@@ -1,39 +1,30 @@
-[gd_resource type="Resource" script_class="Battle" load_steps=11 format=3 uid="uid://b3bpr0rwe4h0s"]
+[gd_resource type="Resource" script_class="Battle" load_steps=13 format=3 uid="uid://b3bpr0rwe4h0s"]
 
 [ext_resource type="Script" path="res://resource_scripts/card.gd" id="1_pl1yc"]
-[ext_resource type="Script" path="res://resource_scripts/effect.gd" id="2_yeplx"]
-[ext_resource type="Script" path="res://resource_scripts/damage.gd" id="3_moek0"]
-[ext_resource type="Resource" uid="uid://cmc50bdruc0d3" path="res://resources/lightning_strike.tres" id="4_gwjp5"]
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="2_pqryb"]
+[ext_resource type="Resource" uid="uid://cmc50bdruc0d3" path="res://resources/cards/lightning_strike.tres" id="4_te77g"]
 [ext_resource type="Script" path="res://resource_scripts/battle.gd" id="4_wsr81"]
+[ext_resource type="Resource" uid="uid://cnaq37fqxn2sm" path="res://resources/cards/earthquake.tres" id="5_u1jjm"]
+[ext_resource type="Resource" uid="uid://6prdipoadhe5" path="res://resources/cards/ponder.tres" id="6_v2btv"]
+[ext_resource type="Resource" uid="uid://dhbuj2py30gxc" path="res://resources/cards/reinforce.tres" id="7_2j36g"]
+[ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="7_dv0qf"]
+[ext_resource type="Resource" uid="uid://d1kmi6evw1617" path="res://resources/enemies/blue_slime.tres" id="8_sdqo1"]
+[ext_resource type="Resource" uid="uid://cpun2ljk5itwk" path="res://resources/enemies/tree_stump.tres" id="9_84840"]
 
-[sub_resource type="Resource" id="Resource_p1oad"]
-script = ExtResource("3_moek0")
-damage_count = 13
+[sub_resource type="Resource" id="Resource_mu5l0"]
+script = ExtResource("2_pqryb")
+amount = 0
 
-[sub_resource type="Resource" id="Resource_kn87d"]
-script = ExtResource("2_yeplx")
-
-[sub_resource type="Resource" id="Resource_yvl1j"]
+[sub_resource type="Resource" id="Resource_035ee"]
 script = ExtResource("1_pl1yc")
 id = 0
-name = ""
-effects = Array[ExtResource("2_yeplx")]([SubResource("Resource_p1oad"), SubResource("Resource_kn87d")])
-element = 3
-targets_single_enemy = false
-
-[sub_resource type="Resource" id="Resource_cw3vq"]
-script = ExtResource("3_moek0")
-damage_count = 10
-
-[sub_resource type="Resource" id="Resource_tgb0f"]
-script = ExtResource("1_pl1yc")
-id = 0
-name = ""
-effects = Array[ExtResource("2_yeplx")]([SubResource("Resource_cw3vq")])
+name = "Example Card"
+effects = Array[ExtResource("2_pqryb")]([SubResource("Resource_mu5l0")])
 element = 0
 targets_single_enemy = false
 
 [resource]
 script = ExtResource("4_wsr81")
-deck = Array[ExtResource("1_pl1yc")]([SubResource("Resource_yvl1j")])
-hand = Array[ExtResource("1_pl1yc")]([SubResource("Resource_tgb0f"), ExtResource("4_gwjp5")])
+deck = Array[ExtResource("1_pl1yc")]([SubResource("Resource_035ee"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
+hand = Array[ExtResource("1_pl1yc")]([])
+enemies = Array[ExtResource("7_dv0qf")]([ExtResource("8_sdqo1"), ExtResource("9_84840")])

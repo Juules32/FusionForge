@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Card" load_steps=7 format=3 uid="uid://6prdipoadhe5"]
+
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_vlgey"]
+[ext_resource type="Script" path="res://resource_scripts/card.gd" id="2_lx4ja"]
+[ext_resource type="Script" path="res://resource_scripts/effects/draw.gd" id="2_vsnxk"]
+[ext_resource type="Script" path="res://resource_scripts/effects/strength.gd" id="3_xht4k"]
+
+[sub_resource type="Resource" id="Resource_2g3kk"]
+script = ExtResource("2_vsnxk")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mx38u"]
+script = ExtResource("3_xht4k")
+amount = -5
+
+[resource]
+script = ExtResource("2_lx4ja")
+id = 0
+name = "Ponder"
+effects = Array[ExtResource("1_vlgey")]([SubResource("Resource_2g3kk"), SubResource("Resource_mx38u")])
+element = 1
+targets_single_enemy = false

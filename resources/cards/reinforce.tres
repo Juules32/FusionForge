@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Card" load_steps=7 format=3 uid="uid://dhbuj2py30gxc"]
+
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_cuwns"]
+[ext_resource type="Script" path="res://resource_scripts/effects/shield.gd" id="2_05qjq"]
+[ext_resource type="Script" path="res://resource_scripts/card.gd" id="2_ikdec"]
+[ext_resource type="Script" path="res://resource_scripts/effects/heal.gd" id="3_b6x0l"]
+
+[sub_resource type="Resource" id="Resource_gryq6"]
+script = ExtResource("2_05qjq")
+amount = 9
+
+[sub_resource type="Resource" id="Resource_w1s6u"]
+script = ExtResource("3_b6x0l")
+amount = 2
+
+[resource]
+script = ExtResource("2_ikdec")
+id = 0
+name = "Reinforce"
+effects = Array[ExtResource("1_cuwns")]([SubResource("Resource_gryq6"), SubResource("Resource_w1s6u")])
+element = 5
+targets_single_enemy = false

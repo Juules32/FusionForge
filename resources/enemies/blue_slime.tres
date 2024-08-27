@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://d1kmi6evw1617"]
+
+[ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="1_7uunn"]
+
+[resource]
+script = ExtResource("1_7uunn")
+name = "blue_slime"
+hit_points = 50

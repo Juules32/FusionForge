@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://cnaq37fqxn2sm"]
+
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_2xrp0"]
+[ext_resource type="Script" path="res://resource_scripts/card.gd" id="2_dosgs"]
+[ext_resource type="Script" path="res://resource_scripts/effects/damage.gd" id="2_wikjc"]
+[ext_resource type="Script" path="res://resource_scripts/effects/heal.gd" id="3_gnp54"]
+[ext_resource type="Script" path="res://resource_scripts/effects/multihit.gd" id="3_lu4y0"]
+
+[sub_resource type="Resource" id="Resource_84fuy"]
+script = ExtResource("2_wikjc")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_ak8tm"]
+script = ExtResource("3_gnp54")
+amount = -3
+
+[sub_resource type="Resource" id="Resource_h6jof"]
+script = ExtResource("3_lu4y0")
+amount = 0
+
+[resource]
+script = ExtResource("2_dosgs")
+id = 0
+name = "earthquake"
+effects = Array[ExtResource("1_2xrp0")]([SubResource("Resource_84fuy"), SubResource("Resource_ak8tm"), SubResource("Resource_h6jof")])
+element = 2
+targets_single_enemy = false

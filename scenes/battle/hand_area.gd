@@ -20,7 +20,8 @@ var non_dragged_cards: Array
 @onready var card_scene: PackedScene = load("res://scenes/card/card.tscn")
 
 func _ready() -> void:
-	pass
+	for card: Card in Game.state.run.battle.hand:
+		draw_card(card)
 
 func _process(delta: float) -> void:
 	mouse_pressed = Input.is_action_pressed("left_mouse")
@@ -56,6 +57,7 @@ func _setup_card(card_data: Card) -> void:
 	var new_card: CardBody = card_scene.instantiate()
 	new_card.card_data = card_data
 	add_child(new_card)
+	# Sprite is set after adding as child because sprite node inits onready
 	new_card.sprite.texture = _determine_card_border_texture(new_card)
 	new_card.button.mouse_entered.connect(_on_card_hovered.bind(new_card))
 	new_card.button.mouse_exited.connect(_on_card_exited.bind(new_card))

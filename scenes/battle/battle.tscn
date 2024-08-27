@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://12egl2mbeuby"]
+[gd_scene load_steps=14 format=3 uid="uid://12egl2mbeuby"]
 
 [ext_resource type="Texture2D" uid="uid://c4apqbj3lt2in" path="res://assets/battle.png" id="1_w27ij"]
 [ext_resource type="Script" path="res://scenes/battle/information_area.gd" id="2_rlbt8"]
@@ -10,9 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ta0rkvbgghsn" path="res://assets/cards/card_backs/logo.png" id="6_gf1yd"]
 [ext_resource type="Script" path="res://scenes/battle/deck_area.gd" id="6_ksk1g"]
 [ext_resource type="Texture2D" uid="uid://dlceek7oj7fuv" path="res://assets/selected_card_indicator.png" id="8_umyu6"]
-[ext_resource type="PackedScene" uid="uid://b2bnilspetgie" path="res://scenes/enemy/enemy.tscn" id="10_qdusm"]
-[ext_resource type="Texture2D" uid="uid://crp5c5457frmg" path="res://assets/enemies/blue_slime.png" id="11_1v7sq"]
-[ext_resource type="Texture2D" uid="uid://b7ga6qgyfa75y" path="res://assets/enemies/tree_stump.png" id="12_gd2tb"]
+[ext_resource type="Script" path="res://scenes/battle/enemy_area.gd" id="10_ny6q2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlu6y"]
 radius = 24.0
@@ -195,17 +193,10 @@ offset_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="EnemyContainer" type="HBoxContainer" parent="BattleArea/EnemyCenterer"]
+[node name="EnemyArea" type="HBoxContainer" parent="BattleArea/EnemyCenterer"]
 layout_mode = 2
 theme_override_constants/separation = 36
-
-[node name="Enemy" parent="BattleArea/EnemyCenterer/EnemyContainer" instance=ExtResource("10_qdusm")]
-layout_mode = 2
-sprite_texture = ExtResource("11_1v7sq")
-
-[node name="Enemy2" parent="BattleArea/EnemyCenterer/EnemyContainer" instance=ExtResource("10_qdusm")]
-layout_mode = 2
-sprite_texture = ExtResource("12_gd2tb")
+script = ExtResource("10_ny6q2")
 
 [node name="DebugArea" type="VBoxContainer" parent="."]
 layout_mode = 0
