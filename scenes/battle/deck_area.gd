@@ -27,5 +27,4 @@ func generate_card_back_path(card_back: Data.CARDBACKS) -> String:
 		Data.CARDBACKS.SYMMETRIC:
 			path += "symmetric"
 	path += ".png"
-	print(path, str(card_back))
 	return path

@@ -65,20 +65,20 @@ func _update_explanation_text() -> void:
 
 func _set_strengths_text() -> void:
 	var strength_description = " deals double damage and receives half damage against "
-	strengths_label.text = _generate_matchup_text(strength_description, Data.strengths[hovered_element])
+	strengths_label.text = _generate_matchup_text(strength_description, Data.element_strengths[hovered_element])
 
 func _set_weaknesses_text() -> void:
 	var weakness_description = " deals half damage and receives double damage against "
-	weaknesses_label.text = _generate_matchup_text(weakness_description, Data.weaknesses[hovered_element])
+	weaknesses_label.text = _generate_matchup_text(weakness_description, Data.element_weaknesses[hovered_element])
 	
 func _generate_matchup_text(custom_text: String, element_names: Array) -> String:
 	var generated_text: String = (
-		Data.int2str[hovered_element] + 
+		Data.element2str[hovered_element] + 
 		custom_text + 
-		Data.int2str[element_names[0]]
+		Data.element2str[element_names[0]]
 	)
 	if len(element_names) > 1:
-		generated_text += " and " + Data.int2str[element_names[1]]
+		generated_text += " and " + Data.element2str[element_names[1]]
 	generated_text += "."
 	return generated_text
 

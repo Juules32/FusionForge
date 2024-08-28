@@ -1,28 +1,6 @@
 
 5. Monster view which should change values of damage effects depending on element and stats
 
-6. Deck
-
 7. Battle script
 
-8. DrawEffect with signal to draw card
-
-9. playing cards visually
-If dropped_in_drop_box:
-	If card_needs_target and no_valid_target:
-		return_to_hand()
-	else:
-		play_card()
-		# no need to remove from hand as it should already have been dragged out
-else:
-	return_to_hand()
-
-10.
-Effect ideas:
-	damage
-	multihit (might be included in damage as default 1)
-	shock (goes from 0% to approaching 50% chance of enemy not moving)
-	shield
-	weakness/strength (enemy will deal x less damage next turn)
-	draw/discard (as a requirement)
-	pay life/gain life (should indicate hp change under player)
+10. Make target decision more sophisticated

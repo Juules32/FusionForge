@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://12egl2mbeuby"]
+[gd_scene load_steps=14 format=3 uid="uid://12egl2mbeuby"]
 
-[ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_3jf6m"]
 [ext_resource type="Texture2D" uid="uid://c4apqbj3lt2in" path="res://assets/battle.png" id="1_w27ij"]
 [ext_resource type="Script" path="res://scenes/battle/information_area.gd" id="2_rlbt8"]
 [ext_resource type="Script" path="res://scenes/battle/element_information.gd" id="3_ubrpg"]
@@ -26,7 +25,6 @@ anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 180.0
 mouse_filter = 2
-script = ExtResource("1_3jf6m")
 metadata/_edit_lock_ = true
 
 [node name="BackgroundSprite" type="Sprite2D" parent="."]
@@ -117,16 +115,11 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 90.0
+offset_top = 100.0
 offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_4bs73")
-
-[node name="CardNameLabel" type="Label" parent="InformationArea/CardInformation"]
-layout_mode = 2
-text = "Name of Card"
-horizontal_alignment = 1
 
 [node name="EffectDescription" type="RichTextLabel" parent="InformationArea/CardInformation"]
 custom_minimum_size = Vector2(0, 40)
@@ -223,9 +216,9 @@ text = "Save"
 layout_mode = 2
 text = "Draw"
 
-[node name="LoadTemplateState" type="Button" parent="DebugArea/HBoxContainer"]
+[node name="ResetState" type="Button" parent="DebugArea/HBoxContainer"]
 layout_mode = 2
-text = "Load Template Battle"
+text = "Reset state"
 
 [node name="Play" type="Button" parent="DebugArea/HBoxContainer"]
 layout_mode = 2
@@ -255,6 +248,6 @@ text = "Debug text"
 [connection signal="mouse_entered" from="BattleArea" to="CardArea/HandCenterer/HandArea" method="_on_battle_area_mouse_entered"]
 [connection signal="button_down" from="DebugArea/HBoxContainer/Save" to="DebugArea" method="_on_save_button_down"]
 [connection signal="button_down" from="DebugArea/HBoxContainer/Draw" to="DebugArea" method="_on_draw_button_down"]
-[connection signal="button_down" from="DebugArea/HBoxContainer/LoadTemplateState" to="DebugArea" method="_on_load_template_battle_button_down"]
+[connection signal="button_down" from="DebugArea/HBoxContainer/ResetState" to="DebugArea" method="_on_reset_state_button_down"]
 [connection signal="button_down" from="DebugArea/HBoxContainer/Play" to="DebugArea" method="_on_play_button_down"]
 [connection signal="item_selected" from="DebugArea/HBoxContainer/CardBackSelector" to="DebugArea" method="_on_button_item_selected"]

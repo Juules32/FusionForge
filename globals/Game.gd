@@ -20,8 +20,8 @@ func _ready() -> void:
 
 func load_state():
 	if ResourceLoader.exists(_save_file_path):
-		# ".duplicate(true)" Makes a deep copy of the save data.
-		state = ResourceLoader.load(_save_file_path).duplicate(true)
+		# "duplicate(true)" Makes a deep copy of the save data.
+		state = ResourceLoader.load(_save_file_path).proper_duplicate(true)
 		print("Loaded game from: " + _save_file_path)
 	else:
 		print("Could not load; no save found!")

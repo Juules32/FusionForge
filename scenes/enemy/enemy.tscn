@@ -11,10 +11,34 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_jl1vl")
 
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2f42u")
+
 [node name="EnemyArea" type="Area2D" parent="."]
 
 [node name="EnemyCollisionShape" type="CollisionShape2D" parent="EnemyArea"]
 shape = SubResource("RectangleShape2D_av04m")
 
-[node name="EnemySprite" type="Sprite2D" parent="EnemyArea"]
-texture = ExtResource("2_2f42u")
+[node name="HitPointsBox" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = 17.0
+offset_right = 16.0
+offset_bottom = 24.0
+color = Color(0.256341, 0.221089, 0.217636, 1)
+
+[node name="HitPointsBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 17.0
+offset_right = 16.0
+offset_bottom = 24.0
+color = Color(0.822576, 0.190953, 0.1954, 1)
+
+[node name="HitPointsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 18.0
+offset_right = 16.0
+offset_bottom = 24.0
+text = "123"
+horizontal_alignment = 1

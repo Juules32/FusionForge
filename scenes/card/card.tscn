@@ -6,6 +6,7 @@
 
 [node name="Card" type="Control"]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
@@ -24,3 +25,4 @@ offset_left = -13.0
 offset_top = -20.0
 offset_right = 13.0
 offset_bottom = 20.0
+mouse_filter = 1

@@ -19,20 +19,20 @@ enum ELEMENTS {
 	ALL
 }
 
-var int2str: Dictionary = {
-	ELEMENTS.PYRO: "Pyro",
-	ELEMENTS.HYDRO: "Hydro",
-	ELEMENTS.EARTH: "Earth",
-	ELEMENTS.LIGHTNING: "Lightning",
-	ELEMENTS.FLORA: "Flora",
-	ELEMENTS.ALLOY: "Alloy",
-	ELEMENTS.PRISMATIC: "Prismatic",
-	ELEMENTS.WANED: "Waned",
-	ELEMENTS.NONE: "Nothing",
-	ELEMENTS.ALL: "Everything"
+var element2str: Dictionary = {
+	ELEMENTS.PYRO: "pyro",
+	ELEMENTS.HYDRO: "hydro",
+	ELEMENTS.EARTH: "earth",
+	ELEMENTS.LIGHTNING: "lightning",
+	ELEMENTS.FLORA: "flora",
+	ELEMENTS.ALLOY: "alloy",
+	ELEMENTS.PRISMATIC: "prismatic",
+	ELEMENTS.WANED: "waned",
+	ELEMENTS.NONE: "nothing",
+	ELEMENTS.ALL: "everything"
 }
 
-var strengths: Dictionary = {
+var element_strengths: Dictionary = {
 	ELEMENTS.PYRO: [ELEMENTS.FLORA, ELEMENTS.ALLOY],
 	ELEMENTS.HYDRO: [ELEMENTS.PYRO, ELEMENTS.EARTH],
 	ELEMENTS.EARTH: [ELEMENTS.PYRO, ELEMENTS.LIGHTNING],
@@ -43,7 +43,7 @@ var strengths: Dictionary = {
 	ELEMENTS.WANED: [ELEMENTS.NONE]
 }
 
-var weaknesses: Dictionary = {
+var element_weaknesses: Dictionary = {
 	ELEMENTS.PYRO: [ELEMENTS.HYDRO, ELEMENTS.EARTH],
 	ELEMENTS.HYDRO: [ELEMENTS.LIGHTNING, ELEMENTS.FLORA],
 	ELEMENTS.EARTH: [ELEMENTS.HYDRO, ELEMENTS.ALLOY],

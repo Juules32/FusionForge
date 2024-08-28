@@ -2,7 +2,7 @@
 # Resource script for ALL state variables that are saved and loaded.
 # ----------------------------------------------------------------------------
 
-extends Resource
+extends ProperResource
 class_name State
 
 @export var run: Run = Run.new()

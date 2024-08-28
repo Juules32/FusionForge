@@ -2,7 +2,7 @@
 # Resource script for ALL state variables related to the current battle.
 # ----------------------------------------------------------------------------
 
-extends Resource
+extends ProperResource
 class_name Battle
 
 @export var deck: Array[Card]
