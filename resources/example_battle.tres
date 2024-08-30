@@ -20,10 +20,9 @@ script = ExtResource("1_pl1yc")
 name = "Example Card"
 effects = Array[ExtResource("2_pqryb")]([SubResource("Resource_mu5l0")])
 element = 0
-targets_single_enemy = false
 
 [resource]
 script = ExtResource("4_wsr81")
 deck = Array[ExtResource("1_pl1yc")]([SubResource("Resource_035ee"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
-hand = Array[ExtResource("1_pl1yc")]([])
+hand = Array[ExtResource("1_pl1yc")]([ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
 enemies = Array[ExtResource("7_dv0qf")]([ExtResource("8_sdqo1"), ExtResource("9_84840"), ExtResource("9_84840")])

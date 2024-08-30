@@ -39,7 +39,7 @@ func _on_draw_button_down() -> void:
 	# This is how to load predefined cards:
 
 func _on_load_template_battle_button_down() -> void:
-	Game.state = State.new()
+	# Game.state = State.new()
 	Game.state.run.battle = ResourceLoader.load("res://resources/example_battle.tres").proper_duplicate(true)
 	for card in hand_area.get_children():
 		card.free()

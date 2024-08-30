@@ -18,4 +18,3 @@ script = ExtResource("1_ru5xs")
 name = "lightning_strike"
 effects = Array[ExtResource("1_nnqmb")]([SubResource("Resource_ormd8"), SubResource("Resource_s55sf")])
 element = 3
-targets_single_enemy = false

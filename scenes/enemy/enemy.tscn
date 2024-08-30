@@ -20,6 +20,7 @@ texture = ExtResource("2_2f42u")
 shape = SubResource("RectangleShape2D_av04m")
 
 [node name="HitPointsBox" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -16.0
 offset_top = 17.0
 offset_right = 16.0

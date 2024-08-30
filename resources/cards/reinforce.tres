@@ -18,4 +18,3 @@ script = ExtResource("2_ikdec")
 name = "reinforce"
 effects = Array[ExtResource("1_cuwns")]([SubResource("Resource_gryq6"), SubResource("Resource_w1s6u")])
 element = 5
-targets_single_enemy = false

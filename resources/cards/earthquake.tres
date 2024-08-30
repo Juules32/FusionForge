@@ -23,4 +23,3 @@ script = ExtResource("2_dosgs")
 name = "earthquake"
 effects = Array[ExtResource("1_2xrp0")]([SubResource("Resource_84fuy"), SubResource("Resource_ak8tm"), SubResource("Resource_h6jof")])
 element = 2
-targets_single_enemy = false

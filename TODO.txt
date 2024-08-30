@@ -1,6 +1,3 @@
-
-5. Monster view which should change values of damage effects depending on element and stats
-
-7. Battle script
-
-10. Make target decision more sophisticated
+- Monster view which should change values of damage effects depending on element and stats
+- Battle script (+ clean up codebase)
+- Make target decision more sophisticated

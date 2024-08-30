@@ -18,4 +18,3 @@ script = ExtResource("2_lx4ja")
 name = "ponder"
 effects = Array[ExtResource("1_vlgey")]([SubResource("Resource_2g3kk"), SubResource("Resource_mx38u")])
 element = 1
-targets_single_enemy = false

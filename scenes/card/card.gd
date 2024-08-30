@@ -43,12 +43,7 @@ func determine_and_set_sprite() -> void:
 		sprite.texture = load(default_sprite_path)
 		return
 	
-	match card_data.element:
-		#Data.ELEMENTS.PYRO:
-		#	sprite.texture = load(supposed_path)
-		# etc...
-		_:
-			sprite.texture = load("res://assets/cards/sprite_missing.png")
+	sprite.texture = load("res://assets/cards/sprite_missing.png")
 
 func play(target: EnemyBody) -> bool:
 	var is_played = true	
