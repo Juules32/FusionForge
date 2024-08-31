@@ -1,6 +1,9 @@
 name: "godot-ci export"
 on: push
 
+permissions:
+  actions: read
+
 env:
   GODOT_VERSION: 4.3
   EXPORT_NAME: .
