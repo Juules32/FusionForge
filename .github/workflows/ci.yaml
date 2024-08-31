@@ -7,8 +7,8 @@ permissions:
 
 env:
   GODOT_VERSION: 4.3
-  EXPORT_NAME: test
-  PROJECT_PATH: .
+  EXPORT_NAME: FusionForge
+  PROJECT_PATH: project
 
 jobs:
   export-web:
@@ -29,7 +29,7 @@ jobs:
         run: |
           mkdir -v -p build/web
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "HTML5" build/web/index.html
+          godot --headless --verbose --export-release "HTML5" ../build/web/game.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -41,6 +41,5 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
           folder: build/web # The folder the action should deploy.
