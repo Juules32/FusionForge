@@ -59,15 +59,28 @@ jobs:
           zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-linux.zip linux/*
           zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-macos.zip macos/*
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: all-platforms
-          path: build
-
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           files: build/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "HTML5" ../build/web/game.html
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: web
+          path: build/web
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/web # The folder the action should deploy.
