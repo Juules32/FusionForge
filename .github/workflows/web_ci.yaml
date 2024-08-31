@@ -37,7 +37,7 @@ jobs:
         run: mkdir -v -p build/web
 
       - name: Build
-        run: godot -v --rendering-driver opengl3.3 --import --export-release "HTML5" build/web/index.html
+        run: godot -v --rendering-driver opengl3 --import --export-release "HTML5" build/web/index.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
