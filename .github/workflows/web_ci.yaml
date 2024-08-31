@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:${GODOT_VERSION}
 
     steps:
       - name: Checkout
@@ -32,7 +32,7 @@ jobs:
       - name: Move HTML5 templates into position
         run: |
           mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Create staging directory
         run: mkdir -v -p build/web
 
