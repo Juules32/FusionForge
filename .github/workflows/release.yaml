@@ -1,4 +1,5 @@
-name: "godot-ci export"
+name: "Release and Deploy"
+
 on:
   push:
     tags:
@@ -50,14 +51,21 @@ jobs:
         run: |
           mkdir -v -p build/macos
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Mac OSX" ../build/macos/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}.zip
+          godot --headless --verbose --export-release "Mac OSX" ../build/macos/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}.app
 
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "HTML5" ../build/web/game.html
+      
       - name: Zip All Builds
         run: |
           cd build
           zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-windows.zip windows/*
           zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-linux.zip linux/*
           zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-macos.zip macos/*
+          zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-web.zip web/*
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -66,21 +74,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Web Build
-        run: |
-          mkdir -v -p build/web
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "HTML5" ../build/web/game.html
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: web
-          path: build/web
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+          branch: gh-pages
+          folder: build/web
