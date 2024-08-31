@@ -1,8 +1,8 @@
 name: "godot-ci export"
 on:
   push:
-    branches:
-      - '*'
+    tags:
+      - 'v*'  # Trigger on version tags
 
 permissions:
   actions: write
