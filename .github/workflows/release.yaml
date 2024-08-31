@@ -63,11 +63,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: all-platforms
-          path: build/*.zip
-
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
+          path: build
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
