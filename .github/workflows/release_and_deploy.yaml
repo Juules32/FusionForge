@@ -1,12 +1,14 @@
+# Note: I know it's advised against for workflows to do multiple things.
+# I don't care.
+
 name: "Release and Deploy"
 
 on:
   push:
     tags:
-      - 'v*'  # Trigger on version tags
+      - 'v*' # When version tags are pushed
 
 permissions:
-  actions: write
   contents: write
 
 env:
@@ -17,9 +19,12 @@ env:
 jobs:
   export:
     name: Export for All Platforms
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    
     container:
+      # This image makes exporting the project easy 😀
       image: barichello/godot-ci:4.3
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,6 +59,7 @@ jobs:
           godot --headless --verbose --export-release "Mac OSX" ../build/macos/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}.app
 
       - name: Web Build
+        # Note: if the web wrapper "index.html" is moved, that file should be copied to build/web
         run: |
           mkdir -v -p build/web
           cd $PROJECT_PATH
@@ -77,5 +83,5 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          branch: gh-pages
-          folder: build/web
+          branch: gh-pages # The branch that should be hosted
+          folder: build/web # We use the results of the web build as the base path
