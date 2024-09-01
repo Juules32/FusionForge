@@ -8,7 +8,7 @@ extends Control
 @onready var deck_sprite: Sprite2D = $DeckSprite
 
 func _ready() -> void:
-	load_card_back()
+	load_card_back(Game.state.options.card_back)
 
 func _on_mouse_entered() -> void:
 	deck_hover_sprite.visible = true
@@ -16,8 +16,8 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	deck_hover_sprite.visible = false
 
-func load_card_back() -> void:
-	deck_sprite.texture = load(generate_card_back_path(Game.state.options.card_back))
+func load_card_back(card_back: Data.CARDBACKS) -> void:
+	deck_sprite.texture = load(generate_card_back_path(card_back))
 	
 func generate_card_back_path(card_back: Data.CARDBACKS) -> String:
 	var path = "res://assets/cards/card_backs/"

@@ -10,7 +10,6 @@ const _save_file_path = _save_file_dir + _save_file_name
 
 var state: State = State.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	# Generates the folders for the save file dir
