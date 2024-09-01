@@ -1,6 +1,6 @@
 # This code was copied from github user: https://github.com/595145489
 # To fix a bug with the duplicate method: https://github.com/godotengine/godot/issues/74918
-# Thank you!
+# Thank you! 😭
 
 extends Resource
 class_name ProperResource

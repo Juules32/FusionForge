@@ -13,6 +13,8 @@ func resolve(_target: Enemy = null) -> void:
 func get_description() -> String:
 	return "Template effect description"
 
+# Various util functions ⬇
+
 func get_icon_path(effect_name: String) -> String:
 	return "res://assets/icons/effects/" + effect_name + ".png"
 

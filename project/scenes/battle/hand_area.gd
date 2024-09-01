@@ -18,7 +18,8 @@ var non_dragged_cards: Array
 
 @onready var enemy_area: HBoxContainer = $"../../../BattleArea/EnemyCenterer/EnemyArea"
 @onready var battle_area: Control = $"../../../BattleArea"
-@onready var card_scene: PackedScene = load("res://scenes/card/card.tscn")
+
+const card_scene: PackedScene = preload("res://scenes/card/card.tscn")
 
 func _ready() -> void:
 	for card: Card in Game.state.run.battle.hand:
@@ -73,6 +74,7 @@ func _update_card_positions() -> void:
 	for i in range(non_dragged_cards.size()):
 		non_dragged_cards[i].move_horizontally(card_x_positions[i])
 
+# Returns a list of x coords for the cards of the hand
 func _distribute_cards(n: int) -> Array:
 	var positions = []
 	if n % 2 == 1:

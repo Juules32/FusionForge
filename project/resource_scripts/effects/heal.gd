@@ -1,7 +1,7 @@
 extends Effect
 class_name HealEffect
 
-func resolve(target: Enemy = null) -> void:
+func resolve(_target: Enemy = null) -> void:
 	print("Healed/payed " + str(amount) + " life")
 
 func get_description() -> String:

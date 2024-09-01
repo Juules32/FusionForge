@@ -1,7 +1,7 @@
 extends Effect
 class_name DrawEffect
 
-func resolve(target: Enemy = null) -> void:
+func resolve(_target: Enemy = null) -> void:
 	print("Drew " + str(amount) + " cards")
 	
 func get_description() -> String:

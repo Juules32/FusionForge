@@ -1,5 +1,5 @@
 - Monster view which should change values of damage effects depending on element and stats
-- Battle script (+ clean up codebase)
+- Make health resource and visual component and attach to player and enemies
 - Make target decision more sophisticated
 
 Non-game related:

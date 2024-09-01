@@ -34,15 +34,16 @@ func move_vertically(new_target: int, duration: float = 0.1) -> void:
 
 func determine_and_set_sprite() -> void:
 	var supposed_path := "res://assets/cards/" + card_data.name + ".png"
-	if FileAccess.file_exists(supposed_path):
+	if ResourceLoader.exists(supposed_path):
 		sprite.texture = load(supposed_path)
 		return
 	
 	var default_sprite_path: String = "res://assets/cards/defaults/" + Data.element2str[card_data.element] + ".png"
-	if FileAccess.file_exists(default_sprite_path):
+	if ResourceLoader.exists(default_sprite_path):
 		sprite.texture = load(default_sprite_path)
 		return
 	
+	print_debug("Texture not found for %s, using missing sprite." % card_data.name)
 	sprite.texture = load("res://assets/cards/sprite_missing.png")
 
 func play(target: EnemyBody) -> bool:
