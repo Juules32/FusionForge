@@ -5,12 +5,14 @@
 extends VBoxContainer
 @onready var hand_area: HandArea = $"../CardArea/HandCenterer/HandArea"
 @onready var deck_area: Control = $"../CardArea/DeckCenterer/DeckArea"
-@onready var card_back_selector: OptionButton = $HBoxContainer/CardBackSelector
+@onready var card_back_selector: OptionButton = $HFlowContainer/CardBackSelector
 @onready var label: Label = $Label
 @onready var enemy_area: HBoxContainer = $"../BattleArea/EnemyCenterer/EnemyArea"
-@onready var window_mode_selector: OptionButton = $HBoxContainer/WindowModeSelector
+@onready var window_mode_selector: OptionButton = $HFlowContainer/WindowModeSelector
 
 func _ready() -> void:
+	visible = OS.is_debug_build()
+	
 	var card_back_index = card_back_selector.get_item_index(Game.state.options.card_back)
 	card_back_selector.selected = card_back_index
 	var window_mode_index = window_mode_selector.get_item_index(Game.state.options.window_mode)

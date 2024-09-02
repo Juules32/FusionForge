@@ -206,16 +206,20 @@ theme_override_constants/separation = 36
 script = ExtResource("10_ny6q2")
 
 [node name="DebugArea" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 373.0
-offset_bottom = 30.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
+mouse_filter = 2
 script = ExtResource("6_65hhk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DebugArea"]
+[node name="HFlowContainer" type="HFlowContainer" parent="DebugArea"]
 layout_mode = 2
 
-[node name="CardBackSelector" type="OptionButton" parent="DebugArea/HBoxContainer"]
+[node name="CardBackSelector" type="OptionButton" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 selected = 0
 fit_to_longest_item = false
@@ -224,7 +228,7 @@ popup/item_0/text = "Logo"
 popup/item_1/text = "Symmetric"
 popup/item_1/id = 1
 
-[node name="WindowModeSelector" type="OptionButton" parent="DebugArea/HBoxContainer"]
+[node name="WindowModeSelector" type="OptionButton" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 selected = 0
 fit_to_longest_item = false
@@ -237,23 +241,23 @@ popup/item_2/id = 3
 popup/item_3/text = "Ex. Fullscreen"
 popup/item_3/id = 4
 
-[node name="Draw" type="Button" parent="DebugArea/HBoxContainer"]
+[node name="Draw" type="Button" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 text = "Draw"
 
-[node name="Save" type="Button" parent="DebugArea/HBoxContainer"]
+[node name="Save" type="Button" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 text = "Save"
 
-[node name="LoadTemplate" type="Button" parent="DebugArea/HBoxContainer"]
+[node name="LoadTemplate" type="Button" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 text = "Load Template"
 
-[node name="Reload" type="Button" parent="DebugArea/HBoxContainer"]
+[node name="Reload" type="Button" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 text = "Reload"
 
-[node name="Reset" type="Button" parent="DebugArea/HBoxContainer"]
+[node name="Reset" type="Button" parent="DebugArea/HFlowContainer"]
 layout_mode = 2
 text = "Reset"
 
@@ -272,10 +276,10 @@ text = "Debug text"
 [connection signal="mouse_entered" from="CardArea/DeckCenterer/DeckArea" to="CardArea/DeckCenterer/DeckArea" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CardArea/DeckCenterer/DeckArea" to="CardArea/DeckCenterer/DeckArea" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="BattleArea" to="CardArea/HandCenterer/HandArea" method="_on_battle_area_mouse_entered"]
-[connection signal="item_selected" from="DebugArea/HBoxContainer/CardBackSelector" to="DebugArea" method="_on_button_item_selected"]
-[connection signal="item_selected" from="DebugArea/HBoxContainer/WindowModeSelector" to="DebugArea" method="_on_window_mode_selector_item_selected"]
-[connection signal="button_down" from="DebugArea/HBoxContainer/Draw" to="DebugArea" method="_on_draw_button_down"]
-[connection signal="button_down" from="DebugArea/HBoxContainer/Save" to="DebugArea" method="_on_save_button_down"]
-[connection signal="button_down" from="DebugArea/HBoxContainer/LoadTemplate" to="DebugArea" method="_on_load_template_button_down"]
-[connection signal="button_down" from="DebugArea/HBoxContainer/Reload" to="DebugArea" method="_on_reload_button_down"]
-[connection signal="button_down" from="DebugArea/HBoxContainer/Reset" to="DebugArea" method="_on_reset_button_down"]
+[connection signal="item_selected" from="DebugArea/HFlowContainer/CardBackSelector" to="DebugArea" method="_on_button_item_selected"]
+[connection signal="item_selected" from="DebugArea/HFlowContainer/WindowModeSelector" to="DebugArea" method="_on_window_mode_selector_item_selected"]
+[connection signal="button_down" from="DebugArea/HFlowContainer/Draw" to="DebugArea" method="_on_draw_button_down"]
+[connection signal="button_down" from="DebugArea/HFlowContainer/Save" to="DebugArea" method="_on_save_button_down"]
+[connection signal="button_down" from="DebugArea/HFlowContainer/LoadTemplate" to="DebugArea" method="_on_load_template_button_down"]
+[connection signal="button_down" from="DebugArea/HFlowContainer/Reload" to="DebugArea" method="_on_reload_button_down"]
+[connection signal="button_down" from="DebugArea/HFlowContainer/Reset" to="DebugArea" method="_on_reset_button_down"]

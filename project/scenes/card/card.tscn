@@ -20,7 +20,7 @@ texture = ExtResource("3_el6kg")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
+layout_mode = 2
 offset_left = -13.0
 offset_top = -20.0
 offset_right = 13.0
