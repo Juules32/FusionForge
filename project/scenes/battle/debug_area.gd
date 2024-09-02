@@ -11,7 +11,7 @@ extends VBoxContainer
 @onready var window_mode_selector: OptionButton = $HFlowContainer/WindowModeSelector
 
 func _ready() -> void:
-	visible = OS.is_debug_build()
+	# visible = OS.is_debug_build() # Use to hide debugging from non-debug builds
 	
 	var card_back_index = card_back_selector.get_item_index(Game.state.options.card_back)
 	card_back_selector.selected = card_back_index
