@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name EnemyArea
 
 const enemy_scene = preload("res://scenes/enemy/enemy.tscn")
 var selected_enemy: EnemyBody

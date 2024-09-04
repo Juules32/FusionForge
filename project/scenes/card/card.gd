@@ -47,7 +47,7 @@ func determine_and_set_sprite() -> void:
 	sprite.texture = load("res://assets/cards/sprite_missing.png")
 
 func play(target: EnemyBody) -> bool:
-	var is_played = true	
+	var is_played = true
 	if target and card_data.targets_single_enemy():
 		pass
 	elif not target and not card_data.targets_single_enemy():
@@ -60,5 +60,5 @@ func play(target: EnemyBody) -> bool:
 		card_data.play(target.enemy_data)
 		queue_free()
 		Game.state.run.battle.hand.erase(card_data)
-	
+		
 	return is_played

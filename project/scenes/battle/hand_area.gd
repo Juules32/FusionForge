@@ -22,6 +22,8 @@ var non_dragged_cards: Array
 const card_scene: PackedScene = preload("res://scenes/card/card.tscn")
 
 func _ready() -> void:
+	Game.card_drawn.connect(draw_card)
+	
 	for card: Card in Game.state.run.battle.hand:
 		draw_card(card)
 
@@ -46,7 +48,7 @@ func _update_dragged_card_position(delta: float) -> void:
 
 func draw_card(card_data: Card) -> void:
 	_setup_card(card_data)
-	_update_card_positions()
+	update_card_positions()
 
 func _update_selected_indicator_visibility() -> void:
 	for card: CardBody in get_children():
@@ -67,7 +69,7 @@ func _setup_card(card_data: Card) -> void:
 	new_card.button.button_up.connect(_on_card_released.bind(new_card))
 	
 # Repositions the hand, taking into account the current dragged card
-func _update_card_positions() -> void:
+func update_card_positions() -> void:
 	non_dragged_cards = get_children().filter(func(card): return card != selected_card)
 	space_between_cards = min(max_hand_width / non_dragged_cards.size(), max_space_between_cards)
 	var card_x_positions = _distribute_cards(non_dragged_cards.size())
@@ -107,17 +109,17 @@ func _on_card_exited(card):
 # Triggers when a card is pressed down
 func _on_card_pressed(card: CardBody) -> void:
 	card.z_index = 2
-	_update_card_positions()
+	update_card_positions()
 
 # Triggers when a card is released
 func _on_card_released(card: CardBody) -> void:
-	selected_card = null
 	var is_played = card.play(enemy_area.selected_enemy)
+	selected_card = null # Important to set to null AFTER playing
 	if not is_played:
 		_set_dropped_card_index(card)
 		card.z_index = 1
 		card.move_vertically(0, 0.5)
-		_update_card_positions()
+		update_card_positions()
 
 func _set_dropped_card_index(card: CardBody) -> void:
 	var card_x_positions = _distribute_cards(len(non_dragged_cards))

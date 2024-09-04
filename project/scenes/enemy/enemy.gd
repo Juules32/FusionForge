@@ -14,6 +14,6 @@ func set_sprite(enemy_name: String) -> void:
 
 func _process(_delta: float) -> void:
 	if enemy_data:
-		var percent := float(enemy_data.hit_points) / enemy_data.max_hit_points
+		var percent := float(enemy_data.current_health) / enemy_data.max_health
 		hit_points_bar.size.x = percent * hit_points_bar_width
-		hit_points_label.text = str(enemy_data.hit_points)
+		hit_points_label.text = str(enemy_data.current_health)

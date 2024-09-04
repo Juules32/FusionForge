@@ -18,6 +18,7 @@ func set_element(new_element: Data.ELEMENTS) -> void:
 func targets_single_enemy() -> bool:
 	return true # Make more sophisticated
 
-func play(target: Enemy) -> void:
+func play(target: Creature) -> void:
+	Game.state.run.battle.player.element = element
 	for effect in effects:
-		effect.resolve(target)
+		effect.resolve(element, Game.state.run.battle.player, target)

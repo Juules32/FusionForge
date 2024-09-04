@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://d1kmi6evw1617"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://d1kmi6evw1617"]
 
 [ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="1_7uunn"]
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_ywfvu"]
 
 [resource]
 script = ExtResource("1_7uunn")
+attack_pattern = Array[ExtResource("1_ywfvu")]([])
 name = "blue_slime"
-hit_points = 70
+current_health = 50
+max_health = 50
+element = 1
+shield_amount = 0
+strength_amount = 0
+shock_amount = 0

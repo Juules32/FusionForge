@@ -7,10 +7,10 @@ class_name Effect
 
 @export var amount: int
 
-func resolve(_target: Enemy = null) -> void:
+func resolve(_user_element: Data.ELEMENTS, _source: Creature, _target: Creature) -> void:
 	print("Template effect resolve")
 
-func get_description() -> String:
+func get_description(_user_element: Data.ELEMENTS = Data.ELEMENTS.NONE, _target: Creature = null) -> String:
 	return "Template effect description"
 
 # Various util functions ⬇
@@ -29,3 +29,8 @@ func amount_to_percentage(x: int, upper_limit: float = 0.5, steepness: float = 0
 	var result := (2*upper_limit / (1 + exp(-steepness * x))) - upper_limit
 	result = clamp(result, 0.0, 0.5)
 	return round(result * 100)
+
+func get_target_name(target: Creature) -> String:
+	if target:
+		return target.name.capitalize()
+	return "target"

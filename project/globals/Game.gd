@@ -10,6 +10,21 @@ const _save_file_path = _save_file_dir + _save_file_name
 
 var state: State = State.new()
 
+signal card_drawn(drawn_card: Card)
+
+func draw_card() -> void:
+	if len(Game.state.run.battle.deck) > 0:
+		# Remove card from deck
+		var drawn_card = Game.state.run.battle.deck[randi() % len(Game.state.run.battle.deck)]
+		# ...
+		
+		# Add card to hand
+		Game.state.run.battle.hand.append(drawn_card)
+		
+		emit_signal("card_drawn", drawn_card)
+	else:
+		print("No cards in deck")
+
 func _ready() -> void:
 	
 	# Generates the folders for the save file dir

@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://cpun2ljk5itwk"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cpun2ljk5itwk"]
 
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_kjg63"]
 [ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="1_nsplx"]
 
 [resource]
 script = ExtResource("1_nsplx")
+attack_pattern = Array[ExtResource("1_kjg63")]([])
 name = "tree_stump"
-hit_points = 70
+current_health = 70
+max_health = 70
+element = 4
+shield_amount = 0
+strength_amount = 0
+shock_amount = 0

@@ -19,7 +19,7 @@ func _ready() -> void:
 	card_back_selector.selected = card_back_index
 	var window_mode_index = window_mode_selector.get_item_index(Game.state.options.window_mode)
 	window_mode_selector.selected = window_mode_index
-	
+
 func _process(_delta: float) -> void:
 	# Show any kind of information here for debugging
 	if enemy_area.selected_enemy:
@@ -28,16 +28,8 @@ func _process(_delta: float) -> void:
 		label.text = ""
 
 func _on_draw_button_down() -> void:
-	if len(Game.state.run.battle.deck) > 0:
-		# Remove card from deck
-		var drawn_card = Game.state.run.battle.deck[randi() % len(Game.state.run.battle.deck)]
-		# ...
-		
-		# Add card to hand
-		Game.state.run.battle.hand.append(drawn_card)
-		hand_area.draw_card(drawn_card)
-	else:
-		print("No cards in deck")
+	Game.draw_card()
+
 
 func _on_load_template_button_down() -> void:
 	Game.state.run.battle = example_battle.proper_duplicate(true)

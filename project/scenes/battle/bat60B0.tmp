@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://12egl2mbeuby"]
+[gd_scene load_steps=16 format=3 uid="uid://12egl2mbeuby"]
 
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_3jf6m"]
 [ext_resource type="Texture2D" uid="uid://c4apqbj3lt2in" path="res://assets/battle.png" id="1_w27ij"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://scenes/battle/deck_area.gd" id="6_ksk1g"]
 [ext_resource type="Texture2D" uid="uid://dlceek7oj7fuv" path="res://assets/selected_card_indicator.png" id="8_umyu6"]
 [ext_resource type="Script" path="res://scenes/battle/enemy_area.gd" id="10_ny6q2"]
-[ext_resource type="Script" path="res://scenes/battle/player_health_label.gd" id="11_h7hte"]
 [ext_resource type="Resource" uid="uid://b3bpr0rwe4h0s" path="res://resources/example_battle.tres" id="13_n38k6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlu6y"]
@@ -188,20 +187,6 @@ anchors_preset = 0
 offset_right = 224.0
 offset_bottom = 112.0
 mouse_filter = 1
-
-[node name="PlayerCenterer" type="CenterContainer" parent="BattleArea"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 112.0
-
-[node name="PlayerArea" type="Control" parent="BattleArea/PlayerCenterer"]
-layout_mode = 2
-
-[node name="PlayerHealthLabel" type="Label" parent="BattleArea/PlayerCenterer/PlayerArea"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 6.0
-script = ExtResource("11_h7hte")
 
 [node name="EnemyCenterer" type="CenterContainer" parent="BattleArea"]
 layout_mode = 1
