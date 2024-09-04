@@ -2,7 +2,7 @@
 # Resource script for the parent class of all damage effects.
 # ----------------------------------------------------------------------------
 
-extends Resource
+extends ProperResource
 class_name Effect
 
 @export var amount: int

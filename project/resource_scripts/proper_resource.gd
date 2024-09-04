@@ -2,10 +2,13 @@
 # To fix a bug with the duplicate method: https://github.com/godotengine/godot/issues/74918
 # Thank you! 😭
 
+# The parent 'duplicate' method should never be called
+# Instead, use the 'proper_duplicate' method
+
 extends Resource
 class_name ProperResource
 
-func proper_duplicate(flag):
+func proper_duplicate(flag := false):
 	var newRes = self.duplicate(flag)
 	if flag:
 		newRes._CheckDuplicateRes()

@@ -10,6 +10,8 @@ extends VBoxContainer
 @onready var enemy_area: HBoxContainer = $"../BattleArea/EnemyCenterer/EnemyArea"
 @onready var window_mode_selector: OptionButton = $HFlowContainer/WindowModeSelector
 
+@export var example_battle: Battle
+
 func _ready() -> void:
 	# visible = OS.is_debug_build() # Use to hide debugging from non-debug builds
 	
@@ -38,7 +40,7 @@ func _on_draw_button_down() -> void:
 		print("No cards in deck")
 
 func _on_load_template_button_down() -> void:
-	Game.state.run.battle = load("res://resources/example_battle.tres")
+	Game.state.run.battle = example_battle.proper_duplicate(true)
 	get_tree().reload_current_scene()
 
 func _on_save_button_down() -> void:
