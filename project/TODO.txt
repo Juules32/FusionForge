@@ -1,3 +1,4 @@
+- make target system more sophisticated
 - lav HealthComponent som visual der kan genbruges
 - Monster view which should change values of damage effects depending on element and stats
 - en TransmuteEffekt som ændrer character element kunne være cool
