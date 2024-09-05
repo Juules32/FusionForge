@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpln4qgo6ygc4"]
+
+[ext_resource type="Script" path="res://scenes/player_area/player_area.gd" id="1_awjno"]
+[ext_resource type="PackedScene" uid="uid://mriphv1761p7" path="res://scenes/health_component/health_component.tscn" id="2_3sqdk"]
+
+[node name="PlayerArea" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_awjno")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_3sqdk")]

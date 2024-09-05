@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://mriphv1761p7"]
+
+[ext_resource type="Script" path="res://scenes/health_component/health_component.gd" id="1_4y7a6"]
+
+[node name="HealthComponent" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = 17.0
+offset_right = 16.0
+offset_bottom = 24.0
+script = ExtResource("1_4y7a6")
+
+[node name="HitPointsBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 7.0
+color = Color(0.256341, 0.221089, 0.217636, 1)
+
+[node name="HitPointsBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 7.0
+color = Color(0.822576, 0.190953, 0.1954, 1)
+
+[node name="HitPointsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 32.0
+offset_bottom = 7.0
+text = "123"
+horizontal_alignment = 1

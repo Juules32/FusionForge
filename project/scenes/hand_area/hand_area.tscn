@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfxfekjh5fxt5"]
+
+[ext_resource type="Script" path="res://scenes/hand_area/hand_area.gd" id="1_mh6u8"]
+
+[node name="HandArea" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_mh6u8")

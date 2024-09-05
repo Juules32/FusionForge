@@ -57,7 +57,7 @@ func play(target: EnemyBody) -> bool:
 		print("Card isn't played")
 	
 	if is_played:
-		card_data.play(target.enemy_data)
+		card_data.play(target.data)
 		queue_free()
 		Game.state.run.battle.hand.erase(card_data)
 		

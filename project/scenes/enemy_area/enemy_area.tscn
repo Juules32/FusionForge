@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnwe7k1m5xgjn"]
+
+[ext_resource type="Script" path="res://scenes/enemy_area/enemy_area.gd" id="1_ms767"]
+
+[node name="EnemyArea" type="HBoxContainer"]
+theme_override_constants/separation = 36
+script = ExtResource("1_ms767")

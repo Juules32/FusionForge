@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Show any kind of information here for debugging
 	if enemy_area.selected_enemy:
-		label.text = enemy_area.selected_enemy.enemy_data.name
+		label.text = enemy_area.selected_enemy.data.name
 	else:
 		label.text = ""
 

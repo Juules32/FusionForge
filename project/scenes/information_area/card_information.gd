@@ -4,6 +4,7 @@
 
 extends VBoxContainer
 
+
 @onready var card_name_label: Label = $CardNameLabel
 @onready var effect_description: RichTextLabel = $EffectDescription
 @onready var hand_area: HandArea = $"../../CardArea/HandCenterer/HandArea"
@@ -24,7 +25,7 @@ func _process(_delta: float) -> void:
 				current_card_element = hand_area.selected_card.card_data.element
 			var current_enemy: Enemy = null
 			if enemy_area.selected_enemy:
-				current_enemy = enemy_area.selected_enemy.enemy_data
+				current_enemy = enemy_area.selected_enemy.data
 			description_text += effect.get_description(current_card_element, current_enemy) + "\n"
 		effect_description.text = description_text
 	else:

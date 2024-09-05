@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2bnilspetgie"]
+[gd_scene load_steps=5 format=3 uid="uid://b2bnilspetgie"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_jl1vl"]
 [ext_resource type="Texture2D" uid="uid://cojtebgyyjmkl" path="res://assets/enemies/sprite_missing.png" id="2_2f42u"]
+[ext_resource type="PackedScene" uid="uid://mriphv1761p7" path="res://scenes/health_component/health_component.tscn" id="3_a4xl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av04m"]
 size = Vector2(32, 32)
@@ -19,27 +20,4 @@ texture = ExtResource("2_2f42u")
 [node name="EnemyCollisionShape" type="CollisionShape2D" parent="EnemyArea"]
 shape = SubResource("RectangleShape2D_av04m")
 
-[node name="HitPointsBox" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 17.0
-offset_right = 16.0
-offset_bottom = 24.0
-color = Color(0.256341, 0.221089, 0.217636, 1)
-
-[node name="HitPointsBar" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 17.0
-offset_right = 16.0
-offset_bottom = 24.0
-color = Color(0.822576, 0.190953, 0.1954, 1)
-
-[node name="HitPointsLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 18.0
-offset_right = 16.0
-offset_bottom = 24.0
-text = "123"
-horizontal_alignment = 1
+[node name="HealthComponent" parent="." instance=ExtResource("3_a4xl6")]

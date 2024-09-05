@@ -4,6 +4,7 @@
 
 extends Control
 
+
 @onready var deck_hover_sprite: Sprite2D = $DeckHoverSprite
 @onready var deck_sprite: Sprite2D = $DeckSprite
 

@@ -1,25 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://12egl2mbeuby"]
+[gd_scene load_steps=10 format=3 uid="uid://12egl2mbeuby"]
 
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_3jf6m"]
 [ext_resource type="Texture2D" uid="uid://c4apqbj3lt2in" path="res://assets/battle.png" id="1_w27ij"]
-[ext_resource type="Script" path="res://scenes/battle/information_area.gd" id="2_rlbt8"]
-[ext_resource type="Script" path="res://scenes/battle/element_information.gd" id="3_ubrpg"]
-[ext_resource type="Texture2D" uid="uid://dranj4xyt7c1c" path="res://assets/color_circle.png" id="4_ie0rv"]
-[ext_resource type="Script" path="res://scenes/battle/card_information.gd" id="5_4bs73"]
-[ext_resource type="Script" path="res://scenes/battle/hand_area.gd" id="5_uw4m5"]
+[ext_resource type="PackedScene" uid="uid://ctlieu1d5gouq" path="res://scenes/information_area/information_area.tscn" id="3_e1xy2"]
+[ext_resource type="PackedScene" uid="uid://bfxfekjh5fxt5" path="res://scenes/hand_area/hand_area.tscn" id="5_txv0v"]
 [ext_resource type="Script" path="res://scenes/battle/debug_area.gd" id="6_65hhk"]
-[ext_resource type="Texture2D" uid="uid://ta0rkvbgghsn" path="res://assets/cards/card_backs/logo.png" id="6_gf1yd"]
-[ext_resource type="Script" path="res://scenes/battle/deck_area.gd" id="6_ksk1g"]
-[ext_resource type="Texture2D" uid="uid://dlceek7oj7fuv" path="res://assets/selected_card_indicator.png" id="8_umyu6"]
-[ext_resource type="Script" path="res://scenes/battle/enemy_area.gd" id="10_ny6q2"]
-[ext_resource type="Script" path="res://scenes/battle/player_health_label.gd" id="11_h7hte"]
+[ext_resource type="PackedScene" uid="uid://dpln4qgo6ygc4" path="res://scenes/player_area/player_area.tscn" id="6_hm0bp"]
+[ext_resource type="PackedScene" uid="uid://s0p4ehn2rog8" path="res://scenes/deck_area/deck_area.tscn" id="7_pi1kp"]
+[ext_resource type="PackedScene" uid="uid://dnwe7k1m5xgjn" path="res://scenes/enemy_area/enemy_area.tscn" id="12_fu24h"]
 [ext_resource type="Resource" uid="uid://b3bpr0rwe4h0s" path="res://resources/example_battle.tres" id="13_n38k6"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jlu6y"]
-radius = 24.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yiulb"]
-radius = 40.0
 
 [node name="Battle" type="Control"]
 custom_minimum_size = Vector2(320, 180)
@@ -36,106 +25,8 @@ texture = ExtResource("1_w27ij")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="InformationArea" type="Control" parent="."]
-custom_minimum_size = Vector2(96, 0)
+[node name="InformationArea" parent="." instance=ExtResource("3_e1xy2")]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -96.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 4
-mouse_filter = 2
-script = ExtResource("2_rlbt8")
-
-[node name="ElementInformation" type="VBoxContainer" parent="InformationArea"]
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 180.0
-script = ExtResource("3_ubrpg")
-
-[node name="CenterContainer" type="CenterContainer" parent="InformationArea/ElementInformation"]
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-
-[node name="CenteredControl" type="Control" parent="InformationArea/ElementInformation/CenterContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="FusionSprite" type="Sprite2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl"]
-texture = ExtResource("4_ie0rv")
-
-[node name="PyroCircleArea" type="Area2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl"]
-
-[node name="PyroCollision" type="CollisionShape2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl/PyroCircleArea"]
-position = Vector2(0, -11)
-shape = SubResource("CircleShape2D_jlu6y")
-
-[node name="HydroCircleArea" type="Area2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl"]
-
-[node name="HydroCollision" type="CollisionShape2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl/HydroCircleArea"]
-position = Vector2(10, 5)
-shape = SubResource("CircleShape2D_jlu6y")
-
-[node name="EarthCircleArea" type="Area2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl"]
-
-[node name="EarthCollision" type="CollisionShape2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl/EarthCircleArea"]
-position = Vector2(-10, 5)
-shape = SubResource("CircleShape2D_jlu6y")
-
-[node name="WanedCircleArea" type="Area2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl"]
-
-[node name="WanedCollision" type="CollisionShape2D" parent="InformationArea/ElementInformation/CenterContainer/CenteredControl/WanedCircleArea"]
-shape = SubResource("CircleShape2D_yiulb")
-
-[node name="StrengthsMarginContainer" type="MarginContainer" parent="InformationArea/ElementInformation"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-
-[node name="StrengthsLabel" type="RichTextLabel" parent="InformationArea/ElementInformation/StrengthsMarginContainer"]
-layout_mode = 2
-theme_override_constants/line_separation = 2
-bbcode_enabled = true
-text = "TEMPLATE TEXT"
-
-[node name="WeaknessesMarginContainer" type="MarginContainer" parent="InformationArea/ElementInformation"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-
-[node name="WeaknessesLabel" type="RichTextLabel" parent="InformationArea/ElementInformation/WeaknessesMarginContainer"]
-layout_mode = 2
-theme_override_constants/line_separation = 2
-text = "TEMPLATE TEXT"
-
-[node name="CardInformation" type="VBoxContainer" parent="InformationArea"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 90.0
-offset_right = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_4bs73")
-
-[node name="CardNameLabel" type="Label" parent="InformationArea/CardInformation"]
-layout_mode = 2
-text = "Name of Card"
-horizontal_alignment = 1
-
-[node name="EffectDescription" type="RichTextLabel" parent="InformationArea/CardInformation"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_constants/line_separation = 2
-bbcode_enabled = true
-text = "wow this is a nice card"
 
 [node name="CardArea" type="Control" parent="."]
 layout_mode = 1
@@ -154,19 +45,8 @@ anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
 
-[node name="DeckArea" type="Control" parent="CardArea/DeckCenterer"]
-custom_minimum_size = Vector2(26, 40)
+[node name="DeckArea" parent="CardArea/DeckCenterer" instance=ExtResource("7_pi1kp")]
 layout_mode = 2
-script = ExtResource("6_ksk1g")
-
-[node name="DeckSprite" type="Sprite2D" parent="CardArea/DeckCenterer/DeckArea"]
-position = Vector2(13, 20)
-texture = ExtResource("6_gf1yd")
-
-[node name="DeckHoverSprite" type="Sprite2D" parent="CardArea/DeckCenterer/DeckArea"]
-visible = false
-position = Vector2(13, 20)
-texture = ExtResource("8_umyu6")
 
 [node name="HandCenterer" type="CenterContainer" parent="CardArea"]
 layout_mode = 1
@@ -178,10 +58,8 @@ offset_left = -176.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="HandArea" type="Control" parent="CardArea/HandCenterer"]
+[node name="HandArea" parent="CardArea/HandCenterer" instance=ExtResource("5_txv0v")]
 layout_mode = 2
-mouse_filter = 1
-script = ExtResource("5_uw4m5")
 
 [node name="BattleArea" type="Control" parent="."]
 anchors_preset = 0
@@ -194,14 +72,8 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 112.0
 
-[node name="PlayerArea" type="Control" parent="BattleArea/PlayerCenterer"]
+[node name="PlayerArea" parent="BattleArea/PlayerCenterer" instance=ExtResource("6_hm0bp")]
 layout_mode = 2
-
-[node name="PlayerHealthLabel" type="Label" parent="BattleArea/PlayerCenterer/PlayerArea"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 6.0
-script = ExtResource("11_h7hte")
 
 [node name="EnemyCenterer" type="CenterContainer" parent="BattleArea"]
 layout_mode = 1
@@ -216,10 +88,8 @@ offset_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="EnemyArea" type="HBoxContainer" parent="BattleArea/EnemyCenterer"]
+[node name="EnemyArea" parent="BattleArea/EnemyCenterer" instance=ExtResource("12_fu24h")]
 layout_mode = 2
-theme_override_constants/separation = 36
-script = ExtResource("10_ny6q2")
 
 [node name="DebugArea" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -282,17 +152,6 @@ text = "Reset"
 layout_mode = 2
 text = "Debug text"
 
-[connection signal="mouse_entered" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/PyroCircleArea" to="InformationArea/ElementInformation" method="_on_pyro_circle_area_mouse_entered"]
-[connection signal="mouse_exited" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/PyroCircleArea" to="InformationArea/ElementInformation" method="_on_pyro_circle_area_mouse_exited"]
-[connection signal="mouse_entered" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/HydroCircleArea" to="InformationArea/ElementInformation" method="_on_hydro_circle_area_mouse_entered"]
-[connection signal="mouse_exited" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/HydroCircleArea" to="InformationArea/ElementInformation" method="_on_hydro_circle_area_mouse_exited"]
-[connection signal="mouse_entered" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/EarthCircleArea" to="InformationArea/ElementInformation" method="_on_earth_circle_area_mouse_entered"]
-[connection signal="mouse_exited" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/EarthCircleArea" to="InformationArea/ElementInformation" method="_on_earth_circle_area_mouse_exited"]
-[connection signal="mouse_entered" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/WanedCircleArea" to="InformationArea/ElementInformation" method="_on_waned_circle_area_mouse_entered"]
-[connection signal="mouse_exited" from="InformationArea/ElementInformation/CenterContainer/CenteredControl/WanedCircleArea" to="InformationArea/ElementInformation" method="_on_waned_circle_area_mouse_exited"]
-[connection signal="mouse_entered" from="CardArea/DeckCenterer/DeckArea" to="CardArea/DeckCenterer/DeckArea" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CardArea/DeckCenterer/DeckArea" to="CardArea/DeckCenterer/DeckArea" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="BattleArea" to="CardArea/HandCenterer/HandArea" method="_on_battle_area_mouse_entered"]
 [connection signal="item_selected" from="DebugArea/HFlowContainer/CardBackSelector" to="DebugArea" method="_on_button_item_selected"]
 [connection signal="item_selected" from="DebugArea/HFlowContainer/WindowModeSelector" to="DebugArea" method="_on_window_mode_selector_item_selected"]
 [connection signal="button_down" from="DebugArea/HFlowContainer/Draw" to="DebugArea" method="_on_draw_button_down"]

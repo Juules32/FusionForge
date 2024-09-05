@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func setup_enemy(enemy_data: Enemy) -> void:
 	var new_enemy: EnemyBody = enemy_scene.instantiate()
-	new_enemy.enemy_data = enemy_data
+	new_enemy.data = enemy_data
 	add_child(new_enemy)
 	# Sprite is set after adding as child because sprite node inits onready
 	new_enemy.set_sprite(enemy_data.name)
