@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://12egl2mbeuby"]
+[gd_scene load_steps=11 format=3 uid="uid://12egl2mbeuby"]
 
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_3jf6m"]
 [ext_resource type="Texture2D" uid="uid://c4apqbj3lt2in" path="res://assets/battle.png" id="1_w27ij"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/battle/debug_area.gd" id="6_65hhk"]
 [ext_resource type="PackedScene" uid="uid://dpln4qgo6ygc4" path="res://scenes/player_area/player_area.tscn" id="6_hm0bp"]
 [ext_resource type="PackedScene" uid="uid://s0p4ehn2rog8" path="res://scenes/deck_area/deck_area.tscn" id="7_pi1kp"]
+[ext_resource type="PackedScene" uid="uid://b2bnilspetgie" path="res://scenes/enemy/enemy.tscn" id="8_734tl"]
 [ext_resource type="PackedScene" uid="uid://dnwe7k1m5xgjn" path="res://scenes/enemy_area/enemy_area.tscn" id="12_fu24h"]
 [ext_resource type="Resource" uid="uid://b3bpr0rwe4h0s" path="res://resources/example_battle.tres" id="13_n38k6"]
 
@@ -90,6 +91,7 @@ grow_vertical = 2
 
 [node name="EnemyArea" parent="BattleArea/EnemyCenterer" instance=ExtResource("12_fu24h")]
 layout_mode = 2
+enemy_scene = ExtResource("8_734tl")
 
 [node name="DebugArea" type="VBoxContainer" parent="."]
 layout_mode = 1

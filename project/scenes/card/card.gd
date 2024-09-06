@@ -46,19 +46,7 @@ func determine_and_set_sprite() -> void:
 	print_debug("Texture not found for %s, using missing sprite." % card_data.name)
 	sprite.texture = load("res://assets/cards/sprite_missing.png")
 
-func play(target: EnemyBody) -> bool:
-	var is_played = true
-	if target and card_data.targets_single_enemy():
-		pass
-	elif not target and not card_data.targets_single_enemy():
-		pass
-	else:
-		is_played = false
-		print("Card isn't played")
-	
-	if is_played:
-		card_data.play(target.data)
-		queue_free()
-		Game.state.run.battle.hand.erase(card_data)
-		
-	return is_played
+func play(target: EnemyBody) -> void:
+	card_data.play(target.data if target else null)
+	queue_free()
+	Game.state.run.battle.hand.erase(card_data)

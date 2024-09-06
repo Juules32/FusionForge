@@ -3,7 +3,7 @@ class_name DamageEffect
 
 func resolve(user_element: Data.ELEMENTS, _source: Creature, target: Creature) -> void:
 	var calculated_amount := apply_weakness_or_resistance(user_element, target)
-	target.current_health -= calculated_amount
+	target.apply_damage(calculated_amount)
 	print("Dealt " + str(calculated_amount) + " damage to " + target.name)
 
 func get_description(user_element: Data.ELEMENTS = Data.ELEMENTS.NONE, target: Creature = null) -> String:

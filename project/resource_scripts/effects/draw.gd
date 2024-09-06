@@ -7,11 +7,7 @@ func resolve(_user_element: Data.ELEMENTS, _source: Creature, _target: Creature)
 	print("Drew " + str(amount) + " cards")
 	
 func get_description(_user_element: Data.ELEMENTS = Data.ELEMENTS.NONE, _target: Creature = null) -> String:
-	var description: String
-	if amount > 0:
-		description = "Draw "
-	else:
-		description += "Discard "
+	var description := "Draw " if amount > 0 else "Discard "
 	for i in range(abs(amount)):
 		description += generate_bbcode_icon_string("draw")
 	return description

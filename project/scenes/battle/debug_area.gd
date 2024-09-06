@@ -22,14 +22,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Show any kind of information here for debugging
-	if enemy_area.selected_enemy:
-		label.text = enemy_area.selected_enemy.data.name
+	if hand_area.selected_card:
+		label.text = str(hand_area.selected_card.card_data.targets_single_creature())
 	else:
 		label.text = ""
 
 func _on_draw_button_down() -> void:
 	Game.draw_card()
-
 
 func _on_load_template_button_down() -> void:
 	Game.state.run.battle = example_battle.proper_duplicate(true)

@@ -34,17 +34,19 @@ func _process(delta: float) -> void:
 
 # Positions card slightly behind the mouse position
 func _update_dragged_card_position(delta: float) -> void:
-	if selected_card and selected_card.button.button_pressed:
-		var mouse_position = get_viewport().get_mouse_position()
-		var target_x = mouse_position[0]
-		var target_y = mouse_position[1]
-		var target_position = Vector2(target_x, target_y)
-		var distance_between_mouse_and_card = target_position.distance_squared_to(
-			selected_card.get_global_rect().position)
-		var speed = delta * distance_between_mouse_and_card * 0.7
-		selected_card.set_global_position(
-			selected_card.get_global_rect().position.move_toward(
-				target_position, speed))
+	if not selected_card or not selected_card.button.button_pressed:
+		return
+		
+	var mouse_position = get_viewport().get_mouse_position()
+	var target_x = mouse_position[0]
+	var target_y = mouse_position[1]
+	var target_position = Vector2(target_x, target_y)
+	var distance_between_mouse_and_card = target_position.distance_squared_to(
+		selected_card.get_global_rect().position)
+	var speed = delta * distance_between_mouse_and_card * 0.7
+	selected_card.set_global_position(
+		selected_card.get_global_rect().position.move_toward(
+			target_position, speed))
 
 func draw_card(card_data: Card) -> void:
 	_setup_card(card_data)
@@ -52,9 +54,7 @@ func draw_card(card_data: Card) -> void:
 
 func _update_selected_indicator_visibility() -> void:
 	for card: CardBody in get_children():
-		card.selected_indicator_sprite.visible = false
-	if selected_card:
-		selected_card.selected_indicator_sprite.visible = true
+		card.selected_indicator_sprite.visible = (card == selected_card)
 
 # Sets up signals for a new instantiated card and adds it to the HandArea
 func _setup_card(card_data: Card) -> void:
@@ -91,14 +91,12 @@ func _distribute_cards(n: int) -> Array:
 			positions.append(x_position)
 	return positions
 
-# Triggers when the mouse enters a card
 func _on_card_hovered(card: CardBody):
 	if not mouse_pressed:
 		card.z_index = 2
 		card.move_vertically(0 - hover_height)
 		selected_card = card
 
-# Triggers when the mouse exits a card
 func _on_card_exited(card):
 	if not mouse_pressed:
 		card.z_index = 1
@@ -106,20 +104,32 @@ func _on_card_exited(card):
 		if selected_card == card:
 			selected_card = null
 
-# Triggers when a card is pressed down
 func _on_card_pressed(card: CardBody) -> void:
 	card.z_index = 2
 	update_card_positions()
 
-# Triggers when a card is released
 func _on_card_released(card: CardBody) -> void:
-	var is_played = card.play(enemy_area.selected_enemy)
-	selected_card = null # Important to set to null AFTER playing
-	if not is_played:
-		_set_dropped_card_index(card)
-		card.z_index = 1
-		card.move_vertically(0, 0.5)
-		update_card_positions()
+	
+	# Mouse in battle area?
+	var mouse_position = get_viewport().get_mouse_position()
+	if not battle_area.get_global_rect().has_point(mouse_position):
+		return_to_card_area(card)
+		return
+	
+	# Targeting card has target? 
+	if not enemy_area.selected_enemy and card.card_data.targets_single_creature():
+		return_to_card_area(card)
+		return
+	
+	card.play(enemy_area.selected_enemy)
+	selected_card = null
+
+func return_to_card_area(card: CardBody) -> void:
+	_set_dropped_card_index(card)
+	card.z_index = 1
+	card.move_vertically(0, 0.5)
+	selected_card = null
+	update_card_positions()
 
 func _set_dropped_card_index(card: CardBody) -> void:
 	var card_x_positions = _distribute_cards(len(non_dragged_cards))

@@ -1,6 +1,10 @@
-- make target system more sophisticated
-- lav HealthComponent som visual der kan genbruges
-- Monster view which should change values of damage effects depending on element and stats
+- Monster view which should change values of damage effects depending on element and stats:
+	- sprite
+	- strength/shield/health_bar/...
+	- elemental background
+- Attack pattern:
+	- visual indicator
+	- manually resolving effects and moving the pattern pointer (pp :o)
 - en TransmuteEffekt som ændrer character element kunne være cool
 - MultiDamageEffect? Skal bare finde ud af hvordan den blander med damage
 

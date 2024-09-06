@@ -12,6 +12,9 @@ var state: State = State.new()
 
 signal card_drawn(drawn_card: Card)
 
+func _ready() -> void:
+	Game.load_state()
+
 func draw_card() -> void:
 	if len(Game.state.run.battle.deck) > 0:
 		# Remove card from deck
@@ -25,14 +28,8 @@ func draw_card() -> void:
 	else:
 		print("No cards in deck")
 
-func _ready() -> void:
-	
-	# Generates the folders for the save file dir
-	DirAccess.make_dir_absolute(_save_file_dir)
-	
-	load_state()
-
 func load_state():
+	DirAccess.make_dir_absolute(_save_file_dir)
 	if ResourceLoader.exists(_save_file_path):
 		# "duplicate(true)" Makes a deep copy of the save data.
 		state = ResourceLoader.load(_save_file_path).proper_duplicate(true)

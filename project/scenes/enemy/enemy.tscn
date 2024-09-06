@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2bnilspetgie"]
+[gd_scene load_steps=6 format=3 uid="uid://b2bnilspetgie"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_jl1vl"]
 [ext_resource type="Texture2D" uid="uid://cojtebgyyjmkl" path="res://assets/enemies/sprite_missing.png" id="2_2f42u"]
 [ext_resource type="PackedScene" uid="uid://mriphv1761p7" path="res://scenes/health_component/health_component.tscn" id="3_a4xl6"]
+[ext_resource type="Texture2D" uid="uid://dlceek7oj7fuv" path="res://assets/selected_card_indicator.png" id="4_p2716"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av04m"]
 size = Vector2(32, 32)
@@ -14,6 +15,9 @@ script = ExtResource("1_jl1vl")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_2f42u")
+
+[node name="SelectedCardIndicator" type="Sprite2D" parent="."]
+texture = ExtResource("4_p2716")
 
 [node name="EnemyArea" type="Area2D" parent="."]
 

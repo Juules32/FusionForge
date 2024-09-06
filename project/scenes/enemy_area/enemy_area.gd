@@ -1,12 +1,19 @@
 extends HBoxContainer
 class_name EnemyArea
 
-const enemy_scene = preload("res://scenes/enemy/enemy.tscn")
+@export var enemy_scene: PackedScene
 var selected_enemy: EnemyBody
 
 func _ready() -> void:
 	for enemy_data in Game.state.run.battle.enemies:
 		setup_enemy(enemy_data)
+
+func _process(_delta: float) -> void:
+	_update_selected_indicator_visibility()
+	
+func _update_selected_indicator_visibility() -> void:
+	for enemy: EnemyBody in get_children():
+		enemy.selected_indicator_sprite.visible = (enemy == selected_enemy)
 
 func setup_enemy(enemy_data: Enemy) -> void:
 	var new_enemy: EnemyBody = enemy_scene.instantiate()
