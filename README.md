@@ -6,7 +6,7 @@ Welcome to the github repo for FusionForge, the deck-builder where you get new c
 
 - Executables can be found [here](https://github.com/Juules32/fusion-forge/releases).
 
-- If you want to make suggestions or inspect the code yourself, open the `project.godot` file.
+- If you want to make suggestions or inspect the code yourself, open the `project.godot` file in Godot Engine.
 
 ### Project Structure
 - `project/` is for the godot project itself.
