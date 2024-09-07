@@ -62,6 +62,7 @@ jobs:
         # Note: if the web wrapper "index.html" is moved, that file should be copied to build/web
         run: |
           mkdir -v -p build/web
+          mv web/index.html build/web/
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "HTML5" ../build/web/game.html
       

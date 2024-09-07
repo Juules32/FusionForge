@@ -20,6 +20,8 @@ FusionForge*
 
 # Exclude vs code settings
 .vscode
+.VSCodeCounter
 
-build/web/*
-!build/web/index.html
+# Exclude web exports
+web/*
+!web/index.html
