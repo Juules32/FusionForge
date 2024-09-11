@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Battle" load_steps=10 format=3 uid="uid://b3bpr0rwe4h0s"]
+[gd_resource type="Resource" script_class="Battle" load_steps=11 format=3 uid="uid://b3bpr0rwe4h0s"]
 
+[ext_resource type="Script" path="res://resource_scripts/card.gd" id="1_5wrfp"]
 [ext_resource type="Resource" uid="uid://df0r72b1ievmj" path="res://resources/cards/fireball.tres" id="2_b1c6d"]
 [ext_resource type="Resource" uid="uid://cmc50bdruc0d3" path="res://resources/cards/lightning_strike.tres" id="4_te77g"]
 [ext_resource type="Script" path="res://resource_scripts/battle.gd" id="4_wsr81"]
@@ -12,6 +13,6 @@
 
 [resource]
 script = ExtResource("4_wsr81")
-deck = [ExtResource("2_b1c6d"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")]
-hand = [ExtResource("2_b1c6d"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")]
+deck = Array[ExtResource("1_5wrfp")]([ExtResource("2_b1c6d"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
+hand = Array[ExtResource("1_5wrfp")]([ExtResource("2_b1c6d"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
 enemies = Array[ExtResource("7_dv0qf")]([ExtResource("9_84840"), ExtResource("8_sdqo1"), ExtResource("9_84840")])

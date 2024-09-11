@@ -15,6 +15,7 @@ func apply_damage(amount: int) -> void:
 
 func apply_heal(amount: int) -> void:
 	current_health += amount
+	current_health = min(current_health, max_health)
 
 func apply_shield(amount: int) -> void:
 	shield_amount += amount

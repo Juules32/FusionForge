@@ -13,7 +13,7 @@ extends VBoxContainer
 @export var example_battle: Battle
 
 func _ready() -> void:
-	# visible = OS.is_debug_build() # Use to hide debugging from non-debug builds
+	visible = OS.is_debug_build() # Use to hide debugging from non-debug builds
 	
 	var card_back_index = card_back_selector.get_item_index(Game.state.options.card_back)
 	card_back_selector.selected = card_back_index
@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Show any kind of information here for debugging
 	if hand_area.selected_card:
-		label.text = str(hand_area.selected_card.card_data.targets_single_creature())
+		label.text = ""
 	else:
 		label.text = ""
 
@@ -44,8 +44,7 @@ func _on_button_item_selected(index: int) -> void:
 
 func _on_window_mode_selector_item_selected(index: int) -> void:
 	var window_mode = window_mode_selector.get_item_id(index) as DisplayServer.WindowMode
-	Game.state.options.window_mode = window_mode
-	DisplayServer.window_set_mode(window_mode)
+	Game.window_set_mode(window_mode)
 
 func _on_reload_button_down() -> void:
 	Game.load_state()

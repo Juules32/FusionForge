@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctl7qm3npheoi"]
+
+[ext_resource type="Script" path="res://scenes/information_area/enemy_information.gd" id="1_crpgh"]
+[ext_resource type="Texture2D" uid="uid://b010uuvg0wvk0" path="res://assets/cards/sprite_missing.png" id="2_ghckb"]
+
+[node name="EnemyInformation" type="VBoxContainer"]
+offset_right = 96.0
+offset_bottom = 180.0
+script = ExtResource("1_crpgh")
+
+[node name="EnemyNameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Template Enemy Name"
+horizontal_alignment = 1
+
+[node name="EnemyTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ghckb")
+stretch_mode = 3
+
+[node name="EnemyDescription" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Template Description"

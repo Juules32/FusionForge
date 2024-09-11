@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvy1netpl6vya"]
+
+[ext_resource type="Script" path="res://scenes/information_area/element_information.gd" id="1_dops8"]
+[ext_resource type="Texture2D" uid="uid://dranj4xyt7c1c" path="res://assets/color_circle.png" id="2_yl3g6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlu6y"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yiulb"]
+radius = 40.0
+
+[node name="ElementInformation" type="VBoxContainer"]
+offset_right = 96.0
+offset_bottom = 180.0
+script = ExtResource("1_dops8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="CenteredControl" type="Control" parent="CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FusionSprite" type="Sprite2D" parent="CenterContainer/CenteredControl"]
+texture = ExtResource("2_yl3g6")
+
+[node name="PyroCircleArea" type="Area2D" parent="CenterContainer/CenteredControl"]
+
+[node name="PyroCollision" type="CollisionShape2D" parent="CenterContainer/CenteredControl/PyroCircleArea"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_jlu6y")
+
+[node name="HydroCircleArea" type="Area2D" parent="CenterContainer/CenteredControl"]
+
+[node name="HydroCollision" type="CollisionShape2D" parent="CenterContainer/CenteredControl/HydroCircleArea"]
+position = Vector2(10, 5)
+shape = SubResource("CircleShape2D_jlu6y")
+
+[node name="EarthCircleArea" type="Area2D" parent="CenterContainer/CenteredControl"]
+
+[node name="EarthCollision" type="CollisionShape2D" parent="CenterContainer/CenteredControl/EarthCircleArea"]
+position = Vector2(-10, 5)
+shape = SubResource("CircleShape2D_jlu6y")
+
+[node name="WanedCircleArea" type="Area2D" parent="CenterContainer/CenteredControl"]
+
+[node name="WanedCollision" type="CollisionShape2D" parent="CenterContainer/CenteredControl/WanedCircleArea"]
+shape = SubResource("CircleShape2D_yiulb")
+
+[node name="StrengthsMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="StrengthsLabel" type="RichTextLabel" parent="StrengthsMarginContainer"]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+bbcode_enabled = true
+text = "TEMPLATE TEXT"
+
+[node name="WeaknessesMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="WeaknessesLabel" type="RichTextLabel" parent="WeaknessesMarginContainer"]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+text = "TEMPLATE TEXT"
+
+[connection signal="mouse_entered" from="CenterContainer/CenteredControl/PyroCircleArea" to="." method="_on_pyro_circle_area_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/CenteredControl/PyroCircleArea" to="." method="_on_pyro_circle_area_mouse_exited"]
+[connection signal="mouse_entered" from="CenterContainer/CenteredControl/HydroCircleArea" to="." method="_on_hydro_circle_area_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/CenteredControl/HydroCircleArea" to="." method="_on_hydro_circle_area_mouse_exited"]
+[connection signal="mouse_entered" from="CenterContainer/CenteredControl/EarthCircleArea" to="." method="_on_earth_circle_area_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/CenteredControl/EarthCircleArea" to="." method="_on_earth_circle_area_mouse_exited"]
+[connection signal="mouse_entered" from="CenterContainer/CenteredControl/WanedCircleArea" to="." method="_on_waned_circle_area_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/CenteredControl/WanedCircleArea" to="." method="_on_waned_circle_area_mouse_exited"]

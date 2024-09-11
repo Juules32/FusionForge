@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0wa1q5epknmx"]
+
+[ext_resource type="Script" path="res://scenes/information_area/card_information.gd" id="1_4nkxl"]
+[ext_resource type="Texture2D" uid="uid://b010uuvg0wvk0" path="res://assets/cards/sprite_missing.png" id="2_4td5h"]
+
+[node name="CardInformation" type="VBoxContainer"]
+offset_right = 96.0
+offset_bottom = 180.0
+script = ExtResource("1_4nkxl")
+
+[node name="CardNameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Name of Card"
+horizontal_alignment = 1
+
+[node name="CardTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_4td5h")
+stretch_mode = 3
+
+[node name="EffectDescription" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/line_separation = 2
+bbcode_enabled = true
+text = "wow this is a nice card"

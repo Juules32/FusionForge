@@ -43,9 +43,11 @@ mouse_filter = 2
 script = ExtResource("3_qx30n")
 
 [node name="ElementInformation" parent="InformationArea" instance=ExtResource("4_m6aks")]
+visible = false
 layout_mode = 2
 
 [node name="CardInformation" parent="InformationArea" instance=ExtResource("5_lxb3o")]
+visible = false
 layout_mode = 2
 
 [node name="EnemyInformation" parent="InformationArea" instance=ExtResource("6_wbbrc")]

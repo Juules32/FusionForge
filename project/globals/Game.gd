@@ -40,3 +40,7 @@ func load_state():
 func save_state():
 	ResourceSaver.save(state, _save_file_path)
 	print("Saved game to: " + _save_file_path)
+	
+func window_set_mode(window_mode: DisplayServer.WindowMode):
+	Game.state.options.window_mode = window_mode
+	DisplayServer.window_set_mode(window_mode)
