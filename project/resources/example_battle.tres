@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Battle" load_steps=11 format=3 uid="uid://b3bpr0rwe4h0s"]
+[gd_resource type="Resource" script_class="Battle" load_steps=20 format=3 uid="uid://b3bpr0rwe4h0s"]
 
 [ext_resource type="Script" path="res://resource_scripts/card.gd" id="1_5wrfp"]
 [ext_resource type="Resource" uid="uid://df0r72b1ievmj" path="res://resources/cards/fireball.tres" id="2_b1c6d"]
@@ -8,11 +8,51 @@
 [ext_resource type="Resource" uid="uid://6prdipoadhe5" path="res://resources/cards/ponder.tres" id="6_v2btv"]
 [ext_resource type="Resource" uid="uid://dhbuj2py30gxc" path="res://resources/cards/reinforce.tres" id="7_2j36g"]
 [ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="7_dv0qf"]
+[ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="8_m6cu8"]
 [ext_resource type="Resource" uid="uid://d1kmi6evw1617" path="res://resources/enemies/blue_slime.tres" id="8_sdqo1"]
 [ext_resource type="Resource" uid="uid://cpun2ljk5itwk" path="res://resources/enemies/tree_stump.tres" id="9_84840"]
+[ext_resource type="Script" path="res://resource_scripts/effects/strength.gd" id="9_y8pmo"]
+[ext_resource type="Script" path="res://resource_scripts/effects/shock.gd" id="10_83hhg"]
+[ext_resource type="Script" path="res://resource_scripts/player.gd" id="13_6uxoo"]
+
+[sub_resource type="Resource" id="Resource_chdbl"]
+script = ExtResource("9_y8pmo")
+amount = -2
+
+[sub_resource type="Resource" id="Resource_axadb"]
+script = ExtResource("9_y8pmo")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_vgupc"]
+script = ExtResource("10_83hhg")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_1uacx"]
+script = ExtResource("7_dv0qf")
+attack_pattern = Array[ExtResource("8_m6cu8")]([SubResource("Resource_chdbl"), SubResource("Resource_axadb"), SubResource("Resource_vgupc")])
+next_attack_index = 0
+description = ""
+name = "tree_stump"
+current_health = 70
+max_health = 70
+element = 4
+shield_amount = 0
+strength_amount = 0
+shock_amount = 0
+
+[sub_resource type="Resource" id="Resource_nfhbj"]
+script = ExtResource("13_6uxoo")
+name = ""
+current_health = 50
+max_health = 50
+element = 8
+shield_amount = 0
+strength_amount = 0
+shock_amount = 0
 
 [resource]
 script = ExtResource("4_wsr81")
 deck = Array[ExtResource("1_5wrfp")]([ExtResource("2_b1c6d"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
 hand = Array[ExtResource("1_5wrfp")]([ExtResource("2_b1c6d"), ExtResource("5_u1jjm"), ExtResource("4_te77g"), ExtResource("6_v2btv"), ExtResource("7_2j36g")])
-enemies = Array[ExtResource("7_dv0qf")]([ExtResource("9_84840"), ExtResource("8_sdqo1"), ExtResource("9_84840")])
+enemies = Array[ExtResource("7_dv0qf")]([SubResource("Resource_1uacx"), ExtResource("8_sdqo1"), ExtResource("9_84840")])
+player = SubResource("Resource_nfhbj")

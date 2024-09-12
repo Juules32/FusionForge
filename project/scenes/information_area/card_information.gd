@@ -10,9 +10,6 @@ extends VBoxContainer
 @onready var hand_area: HandArea = $"../../CardArea/HandCenterer/HandArea"
 @onready var enemy_area: EnemyArea = $"../../BattleArea/EnemyCenterer/EnemyArea"
 
-func _ready() -> void:
-	effect_description.scroll_active = false
-
 func _process(_delta: float) -> void:
 	var description_text := ""
 	if not hand_area.selected_card:

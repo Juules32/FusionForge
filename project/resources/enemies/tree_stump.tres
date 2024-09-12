@@ -1,11 +1,23 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cpun2ljk5itwk"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://cpun2ljk5itwk"]
 
 [ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_kjg63"]
 [ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="1_nsplx"]
+[ext_resource type="Script" path="res://resource_scripts/effects/heal.gd" id="2_1r0kc"]
+[ext_resource type="Script" path="res://resource_scripts/effects/shield.gd" id="3_34na2"]
+
+[sub_resource type="Resource" id="Resource_xrofk"]
+script = ExtResource("2_1r0kc")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fptbn"]
+script = ExtResource("3_34na2")
+amount = 4
 
 [resource]
 script = ExtResource("1_nsplx")
-attack_pattern = Array[ExtResource("1_kjg63")]([])
+attack_pattern = Array[ExtResource("1_kjg63")]([SubResource("Resource_xrofk"), SubResource("Resource_fptbn")])
+next_attack_index = 0
+description = "A mysterious creature inhabits this tree."
 name = "tree_stump"
 current_health = 70
 max_health = 70

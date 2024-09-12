@@ -13,11 +13,6 @@ var earth_hovered = false
 var waned_hovered = false
 var hovered_element = Data.ELEMENTS.NONE
 
-# Disables/hides scroll bars
-func _ready() -> void:
-	strengths_label.scroll_active = false
-	weaknesses_label.scroll_active = false
-
 func _process(_delta: float) -> void:
 	_set_hovered_element()
 	_update_explanation_text()

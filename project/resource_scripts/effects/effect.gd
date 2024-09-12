@@ -13,16 +13,11 @@ func resolve(_user_element: Data.ELEMENTS, _source: Creature, _target: Creature)
 func get_description(_user_element: Data.ELEMENTS = Data.ELEMENTS.NONE, _target: Creature = null) -> String:
 	return "Template effect description"
 
-# Various util functions ⬇
+func get_intent(_user: Enemy, _target := Game.state.run.battle.player) -> String:
+	return "Template"
 
-func get_icon_path(effect_name: String) -> String:
-	return "res://assets/icons/effects/" + effect_name + ".png"
-
-func generate_bbcode_color_string(color: String, text: String) -> String:
-	return "[color=" + color + "]" + text + "[/color]"
-
-func generate_bbcode_icon_string(effect_name: String) -> String:
-	return "[img=top]res://assets/icons/effects/" + effect_name + ".png[/img]"
+func get_intent_description(_user: Enemy, _target := Game.state.run.battle.player) -> String:
+	return "Template intent description"
 
 # Used to convert effect amount to logarithmic percentage to prevent unfair effects
 func amount_to_float(x: int, upper_limit: float = 0.5, steepness: float = 0.2) -> float:

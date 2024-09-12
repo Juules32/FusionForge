@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2bnilspetgie"]
+[gd_scene load_steps=7 format=3 uid="uid://b2bnilspetgie"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_jl1vl"]
 [ext_resource type="Texture2D" uid="uid://cojtebgyyjmkl" path="res://assets/enemies/sprite_missing.png" id="2_2f42u"]
 [ext_resource type="PackedScene" uid="uid://mriphv1761p7" path="res://scenes/health_component/health_component.tscn" id="3_a4xl6"]
 [ext_resource type="Texture2D" uid="uid://dlceek7oj7fuv" path="res://assets/selected_card_indicator.png" id="4_p2716"]
+[ext_resource type="Script" path="res://scenes/enemy/intent_sprite.gd" id="5_xrrn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av04m"]
 size = Vector2(32, 32)
@@ -25,3 +26,13 @@ texture = ExtResource("4_p2716")
 shape = SubResource("RectangleShape2D_av04m")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_a4xl6")]
+
+[node name="IntentSprite" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -30.0
+offset_right = 16.0
+offset_bottom = -24.0
+bbcode_enabled = true
+scroll_active = false
+script = ExtResource("5_xrrn5")

@@ -8,7 +8,7 @@ extends Control
 @onready var enemy_area: EnemyArea = $"../BattleArea/EnemyCenterer/EnemyArea"
 @onready var element_information: VBoxContainer = $ElementInformation
 @onready var card_information: VBoxContainer = $CardInformation
-@onready var enemy_information: VBoxContainer = $EnemyInformation
+@onready var enemy_information: MarginContainer = $EnemyInformation
 
 func _process(_delta: float) -> void:
 	_show_relevant_information()

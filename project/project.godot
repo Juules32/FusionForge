@@ -19,6 +19,7 @@ config/icon="res://assets/color_circle.png"
 
 [autoload]
 
+Utils="*res://globals/Utils.gd"
 Data="*res://globals/Data.gd"
 Game="*res://globals/Game.gd"
 

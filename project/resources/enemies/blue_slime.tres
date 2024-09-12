@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://d1kmi6evw1617"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://d1kmi6evw1617"]
 
 [ext_resource type="Script" path="res://resource_scripts/enemy.gd" id="1_7uunn"]
 [ext_resource type="Script" path="res://resource_scripts/effects/effect.gd" id="1_ywfvu"]
+[ext_resource type="Script" path="res://resource_scripts/effects/damage.gd" id="2_wj03t"]
+
+[sub_resource type="Resource" id="Resource_6e5um"]
+script = ExtResource("2_wj03t")
+amount = 5
 
 [resource]
 script = ExtResource("1_7uunn")
-attack_pattern = Array[ExtResource("1_ywfvu")]([])
+attack_pattern = Array[ExtResource("1_ywfvu")]([SubResource("Resource_6e5um")])
+next_attack_index = 0
+description = "Likes to jump around."
 name = "blue_slime"
 current_health = 50
 max_health = 50

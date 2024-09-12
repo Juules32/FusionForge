@@ -14,13 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dnwe7k1m5xgjn" path="res://scenes/enemy_area/enemy_area.tscn" id="12_fu24h"]
 [ext_resource type="Resource" uid="uid://b3bpr0rwe4h0s" path="res://resources/example_battle.tres" id="13_n38k6"]
 
-[node name="Battle" type="Control"]
-custom_minimum_size = Vector2(320, 180)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 320.0
-offset_bottom = 180.0
-mouse_filter = 2
+[node name="Battle" type="CanvasLayer"]
 script = ExtResource("1_3jf6m")
 metadata/_edit_lock_ = true
 
@@ -30,7 +24,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="InformationArea" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -50,9 +44,12 @@ layout_mode = 2
 
 [node name="EnemyInformation" parent="InformationArea" instance=ExtResource("6_wbbrc")]
 layout_mode = 2
+anchors_preset = 0
+offset_left = 2.0
+offset_right = -2.0
 
 [node name="CardArea" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -85,6 +82,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="BattleArea" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 224.0
 offset_bottom = 112.0
@@ -117,7 +115,6 @@ enemy_scene = ExtResource("8_734tl")
 
 [node name="DebugArea" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -173,6 +170,10 @@ text = "Reload"
 layout_mode = 2
 text = "Reset"
 
+[node name="End Turn" type="Button" parent="DebugArea/HFlowContainer"]
+layout_mode = 2
+text = "End Turn"
+
 [node name="Label" type="Label" parent="DebugArea"]
 layout_mode = 2
 text = "Debug text"
@@ -184,3 +185,4 @@ text = "Debug text"
 [connection signal="button_down" from="DebugArea/HFlowContainer/LoadTemplate" to="DebugArea" method="_on_load_template_button_down"]
 [connection signal="button_down" from="DebugArea/HFlowContainer/Reload" to="DebugArea" method="_on_reload_button_down"]
 [connection signal="button_down" from="DebugArea/HFlowContainer/Reset" to="DebugArea" method="_on_reset_button_down"]
+[connection signal="button_down" from="DebugArea/HFlowContainer/End Turn" to="DebugArea" method="_on_end_turn_button_down"]

@@ -3,22 +3,44 @@
 [ext_resource type="Script" path="res://scenes/information_area/enemy_information.gd" id="1_crpgh"]
 [ext_resource type="Texture2D" uid="uid://b010uuvg0wvk0" path="res://assets/cards/sprite_missing.png" id="2_ghckb"]
 
-[node name="EnemyInformation" type="VBoxContainer"]
-offset_right = 96.0
-offset_bottom = 180.0
+[node name="EnemyInformation" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 2
 script = ExtResource("1_crpgh")
 
-[node name="EnemyNameLabel" type="Label" parent="."]
+[node name="EnemyInformation" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EnemyNameLabel" type="Label" parent="EnemyInformation"]
 layout_mode = 2
 text = "Template Enemy Name"
 horizontal_alignment = 1
 
-[node name="EnemyTexture" type="TextureRect" parent="."]
+[node name="EnemyTexture" type="TextureRect" parent="EnemyInformation"]
 layout_mode = 2
 texture = ExtResource("2_ghckb")
 stretch_mode = 3
 
-[node name="EnemyDescription" type="RichTextLabel" parent="."]
+[node name="EnemyStatus" type="RichTextLabel" parent="EnemyInformation"]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+bbcode_enabled = true
+
+[node name="EnemyIntent" type="RichTextLabel" parent="EnemyInformation"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_constants/line_separation = 2
+bbcode_enabled = true
 text = "Template Description"
+
+[node name="EnemyDescription" type="RichTextLabel" parent="EnemyInformation"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/line_separation = 2

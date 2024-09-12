@@ -53,3 +53,8 @@ func _on_reload_button_down() -> void:
 func _on_reset_button_down() -> void:
 	Game.state = State.new()
 	get_tree().reload_current_scene()
+
+
+func _on_end_turn_button_down() -> void:
+	for enemy in Game.state.run.battle.enemies:
+		enemy.resolve_intent()
