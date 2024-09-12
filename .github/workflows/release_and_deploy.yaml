@@ -82,7 +82,7 @@ jobs:
           cd web && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-web.zip * && cd ..
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: build/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-*.zip
         env:
