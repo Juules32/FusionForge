@@ -40,6 +40,8 @@ jobs:
         id: extract_tag
         run: echo "TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
+      # Manually changes game version to tag name
+      # Note: If "config/version/*" is not found in project.godot, this doesn't work!
       - name: Update Project Version
         run: |
           sed -i 's/^config\/version=.*/config\/version="${{ env.TAG_NAME }}"/' $PROJECT_PATH/project.godot
@@ -64,7 +66,6 @@ jobs:
           godot --headless --verbose --export-release "Mac OSX" ../build/macos/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}.app
 
       - name: Web Build
-        # Note: if the web wrapper "index.html" is moved, that file should be copied to build/web
         run: |
           mkdir -v -p build/web
           mv web/index.html build/web/
@@ -74,10 +75,11 @@ jobs:
       - name: Zip All Builds
         run: |
           cd build
-          zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-windows.zip windows/*
-          zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-linux.zip linux/*
-          zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-macos.zip macos/*
-          zip -r ${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-web.zip web/*
+          # For Windows, Linux, macOS, and Web, change to the respective directories and zip only the contents
+          cd windows && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-windows.zip * && cd ..
+          cd linux && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-linux.zip * && cd ..
+          cd macos && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-macos.zip * && cd ..
+          cd web && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-web.zip * && cd ..
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
