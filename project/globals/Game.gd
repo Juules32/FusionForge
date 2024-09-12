@@ -4,9 +4,9 @@
 
 extends Node
 
-const _save_file_dir = "user://saves/"
-const _save_file_name = "save.tres"
-const _save_file_path = _save_file_dir + _save_file_name
+var _save_file_dir = "user://saves/"
+var _save_file_name = "save-" + ProjectSettings.get_setting("application/config/version") + ".tres"
+var _save_file_path = _save_file_dir + _save_file_name
 
 var state: State = State.new()
 

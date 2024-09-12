@@ -44,7 +44,7 @@ jobs:
         run: |
           mkdir -v -p build/windows
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}.exe
+          godot --headless --verbose --version "{{ env.TAG_NAME }}" --export-release "Windows Desktop" ../build/windows/${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}.exe
 
       - name: Linux Build
         run: |
