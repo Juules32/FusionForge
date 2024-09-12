@@ -40,6 +40,11 @@ jobs:
         id: extract_tag
         run: echo "TAG_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
+      - name: Update Project Version
+        run: |
+          sed -i 's/^config\/version=.*/config\/version="${{ env.TAG_NAME }}"/' $PROJECT_PATH/project.godot
+          cat $PROJECT_PATH/project.godot # Optional: View the modified file to verify the change
+
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
