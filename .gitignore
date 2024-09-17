@@ -25,3 +25,5 @@ FusionForge*
 # Exclude web exports
 web/*
 !web/index.html
+
+TODO.*
