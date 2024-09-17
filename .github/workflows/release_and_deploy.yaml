@@ -72,10 +72,10 @@ jobs:
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "HTML5" ../build/web/game.html
       
+      # For Windows, Linux, macOS, and Web, change to the respective directories and zip only the contents
       - name: Zip All Builds
         run: |
           cd build
-          # For Windows, Linux, macOS, and Web, change to the respective directories and zip only the contents
           cd windows && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-windows.zip * && cd ..
           cd linux && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-linux.zip * && cd ..
           cd macos && zip -r ../${{ env.EXPORT_NAME }}-${{ env.TAG_NAME }}-macos.zip * && cd ..
